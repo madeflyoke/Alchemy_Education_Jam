@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/.idea.mini_jam_Flower.iml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../:\Projects\Unity\mini_jam_Flower\.idea\.idea.mini_jam_Flower\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
