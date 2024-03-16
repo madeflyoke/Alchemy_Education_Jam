@@ -29,8 +29,8 @@ namespace Main.Scripts.Hand
             if(!enable) return;
             
             var nextPos = _inputHandler.GetAxisRaw() * (_speed * Time.deltaTime);
-            /*nextPos.x = _movementLimiter.CheckOnHorizontalMovement(nextPos.x + _currentPos.x) ? nextPos.x : 0;
-            nextPos.y = _movementLimiter.CheckOnDepthMovement(nextPos.y + _currentPos.y) ? nextPos.y : 0;*/
+            nextPos.x = _movementLimiter.CheckOnHorizontalMovement(nextPos.x + _currentPos.x) ? nextPos.x : 0;
+            nextPos.y = _movementLimiter.CheckOnDepthMovement(nextPos.y + _currentPos.z) ? nextPos.y : 0;
             transform.position += new Vector3(nextPos.x,0,nextPos.y);
         }
 

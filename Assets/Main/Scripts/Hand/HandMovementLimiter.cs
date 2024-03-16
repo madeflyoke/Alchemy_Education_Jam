@@ -8,10 +8,10 @@ namespace Main.Scripts.Hand
         [SerializeField] private float _depthSize;
 
         public bool CheckOnHorizontalMovement(float position)
-            => (transform.position.x-_horizontalSize/2<position && position >transform.position.x+_horizontalSize/2);
+            => (transform.position.x-_horizontalSize/2<position && position <transform.position.x+_horizontalSize/2);
 
         public bool CheckOnDepthMovement(float position)
-            => (transform.position.z-_depthSize/2<position && position >transform.position.z+_depthSize/2);
+            => (transform.position.z-_depthSize/2<position && position <transform.position.z+_depthSize/2);
         
         private void OnDrawGizmos()
         {
