@@ -16,8 +16,8 @@ namespace Main.Scripts.UI
 
         public void Init()
         {
-            _nextBTN.onClick.AddListener(NextPage);
-            _backBTN.onClick.AddListener(PrevPage);
+            // _nextBTN.onClick.AddListener(NextPage);
+            // _backBTN.onClick.AddListener(PrevPage);
             _closeGuideBTN.onClick.AddListener(Hide);
         }
 
@@ -59,8 +59,8 @@ namespace Main.Scripts.UI
 
         public void Hide()
         {
-            _nextBTN.onClick.RemoveListener(NextPage);
-            _backBTN.onClick.RemoveListener(PrevPage);
+            // _nextBTN.onClick.RemoveListener(NextPage);
+            // _backBTN.onClick.RemoveListener(PrevPage);
             _closeGuideBTN.onClick.RemoveListener(Hide);
             OnGuideFinish?.Invoke();
             gameObject.SetActive(false);

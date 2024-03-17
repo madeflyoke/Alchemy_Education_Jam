@@ -10,15 +10,14 @@ namespace Main.Scripts.Level
         [SerializeField] private LevelController _levelController;
         private void Start()
         {
-            /*_gameplayGuide.Init();
+            _gameplayGuide.Init();
             _gameplayGuide.OnGuideFinish += LaunchLevel;
-            _gameplayGuide.Show();*/
-            LaunchLevel();
+            _gameplayGuide.Show();
         }
 
         private void LaunchLevel()
         {
-           // _gameplayGuide.OnGuideFinish -= LaunchLevel;
+           _gameplayGuide.OnGuideFinish -= LaunchLevel;
             _levelController.SetupLevel();
             _levelController.Launch();
         }
