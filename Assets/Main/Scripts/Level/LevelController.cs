@@ -1,6 +1,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using Main.Scripts.Audio;
 using Main.Scripts.Craft;
 using Main.Scripts.Flowers;
 using Main.Scripts.Input;
@@ -54,10 +55,13 @@ namespace Main.Scripts.Level
             if (type == _currentFlower)
             {
                 _boiler.Disable();
+                Debug.Log("SUCCES");
                 _witch.TryPlayResultAnimation(true);
                 await UniTask.Delay(3000);
                 PeakRandomFlower();
                 _boiler.Enable();
+               
+                SoundController.Instance?.PlayClip(SoundType.WIN);
                 _flowerPot.ResetPot(true);
             }
             else
@@ -66,6 +70,8 @@ namespace Main.Scripts.Level
                 _witch.TryPlayResultAnimation(false);
                 await UniTask.Delay(3000);
                 _boiler.Enable();
+              
+                SoundController.Instance?.PlayClip(SoundType.LOSE);
                 _flowerPot.ResetPot(false);
             }
         }
