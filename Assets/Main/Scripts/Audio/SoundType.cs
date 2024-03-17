@@ -6,5 +6,6 @@ namespace Main.Scripts.Audio
         RELEASE_CURSOR = 1,
         WIN = 2,
         LOSE = 3,
+        POOF = 4
     }
 }

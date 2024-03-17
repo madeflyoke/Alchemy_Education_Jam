@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DG.Tweening;
 using EasyButtons;
+using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
 using Main.Scripts.Ingredients;
 using Main.Scripts.Input;
@@ -86,7 +87,7 @@ namespace Main.Scripts.Craft
                 _currentFlask.transform.position = FlaskSpawnPoint.position;
                 _currentFlask.OnFlaskDestroy += OnFlaskDestroy;
             }
-           
+           SoundController.Instance.PlayClip(SoundType.POOF);
             _currentFlask.Setup(CreateFertilizer());
             Clear();
         }
