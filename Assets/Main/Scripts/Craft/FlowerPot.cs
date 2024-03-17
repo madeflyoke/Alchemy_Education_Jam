@@ -1,13 +1,16 @@
+using System;
 using System.Collections.Generic;
 using Main.Scripts.Flowers;
 using UnityEngine;
+using Zenject;
 
 namespace Main.Scripts.Craft
 {
     public class FlowerPot : MonoBehaviour
     {
-        [SerializeField] private FlowerRecipeSetup _recipes;
-        [SerializeField] private FlowersSetup _flowers;
+        public event Action<FlowerType> OnFlowerGrow;
+        [Inject] private FlowerRecipeSetup _recipes;
+        [Inject] private FlowersSetup _flowers;
         [SerializeField] private Transform _spawnPoint;
         
         private void OnTriggerEnter(Collider other)
@@ -30,11 +33,13 @@ namespace Main.Scripts.Craft
         {
             var newFlower = Instantiate(_flowers.Flowers.Find(f => f.Type == flowerType).Prefab);
             newFlower.transform.position = _spawnPoint.position;
+            OnFlowerGrow?.Invoke(flowerType);
         }
 
         private void  PlayFailAnimation()
         {
             Debug.Log("FAIL");
+            OnFlowerGrow?.Invoke(FlowerType.NONE);
         }
     }
 }

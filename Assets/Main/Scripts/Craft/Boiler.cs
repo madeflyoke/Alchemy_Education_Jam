@@ -5,15 +5,34 @@ using DG.Tweening;
 using EasyButtons;
 using Main.Scripts.Flowers;
 using Main.Scripts.Ingredients;
+using Main.Scripts.Input;
 using UnityEngine;
+using Zenject;
 
 namespace Main.Scripts.Craft
 {
     public class Boiler : MonoBehaviour
     {
+        [Inject] private InputHandler _inputHandler;
         [SerializeField] private Transform FlaskSpawnPoint;
         [SerializeField] private Flask _prefab;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
+
+        public void Enable()
+        {
+            _inputHandler.OnKeyboardButtonClick += HandlePotionEvent;
+        }
+
+        public void Disable()
+        {
+            _inputHandler.OnKeyboardButtonClick -= HandlePotionEvent;
+        }
+
+        private void HandlePotionEvent(ButtonType type)
+        {
+            if (type == ButtonType.CreatePotion)
+                CreateFlask();
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -58,22 +77,19 @@ namespace Main.Scripts.Craft
             var newFlask = Instantiate(_prefab);
             newFlask.transform.position = FlaskSpawnPoint.position;
             newFlask.Setup(CreateFertilizer());
-            _currentFertilizer = new Dictionary<IngredientsType, int>();
+            Clear();
         }
 
         [Button]
-        public void Clear()
-        {
+        public void Clear()=>
             _currentFertilizer = new Dictionary<IngredientsType, int>();
-        }
+        
 
         private void OnDrawGizmos()
         {
             if(FlaskSpawnPoint==null) return;
-            
             Gizmos.color = Color.cyan;
             Gizmos.DrawSphere(FlaskSpawnPoint.position, 0.2f);
-                
         }
     }
 }

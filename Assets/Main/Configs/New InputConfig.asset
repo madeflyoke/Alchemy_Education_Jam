@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74296434826355646bf118b7a225726f, type: 3}
   m_Name: New InputConfig
   m_EditorClassIdentifier: 
-  ButtonPairs:
+  MouseButtonPairs:
   - Type: 0
     Key: 323
+  KeyboardButtonPairs:
+  - Type: 1
+    Key: 9
+  - Type: 2
+    Key: 32
   MouseSensitivity: 2

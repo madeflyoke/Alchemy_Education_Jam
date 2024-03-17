@@ -6,15 +6,14 @@ namespace Main.Scripts.Input
 {
     public class InputHandler : MonoBehaviour
     {
-        //[Inject] private InputConfig _inputConfig;
-        public event Action<MouseButtonType> OnMouseButtonDown;
-        public event Action<MouseButtonType> OnMouseButtonUp;
-        [SerializeField]
-
-            private InputConfig _inputConfig_TEST;
+        [Inject] private InputConfig _inputConfig;
+        public event Action<ButtonType> OnMouseButtonDown;
+        public event Action<ButtonType> OnMouseButtonUp;
+        public event Action<ButtonType> OnKeyboardButtonClick;
 
         private Vector2 _axis = Vector2.zero;
-        private MouseButtonPair[] _mouseButtonPairs;
+        private ButtonPair[] _mouseButton;
+        private ButtonPair[] _keyboardButtons;
         public const string MouseXAxis = "Mouse X";
         public const string MouseYAxis = "Mouse Y";
         public bool enable;
@@ -23,8 +22,8 @@ namespace Main.Scripts.Input
         private void Awake()
         {
             _axis = Vector2.zero;
-            _mouseButtonPairs = _inputConfig_TEST.ButtonPairs.ToArray();
-            enable = true;
+            _mouseButton = _inputConfig.MouseButtonPairs.ToArray();
+            _keyboardButtons = _inputConfig.KeyboardButtonPairs.ToArray();
         }
 
         private void Update()
@@ -38,15 +37,15 @@ namespace Main.Scripts.Input
         private void HandleAxis()
         {
             var rawAxis = Vector2.zero;
-            rawAxis.x = UnityEngine.Input.GetAxisRaw(MouseXAxis) * _inputConfig_TEST.MouseSensitivity;
-            rawAxis.y = UnityEngine.Input.GetAxisRaw(MouseYAxis) * _inputConfig_TEST.MouseSensitivity;
+            rawAxis.x = UnityEngine.Input.GetAxisRaw(MouseXAxis) * _inputConfig.MouseSensitivity;
+            rawAxis.y = UnityEngine.Input.GetAxisRaw(MouseYAxis) * _inputConfig.MouseSensitivity;
             _axis = rawAxis ;
         }
 
         private void  HandleButtonInput()
         {
-            if(_mouseButtonPairs!=null)
-                foreach (var buttonPair in _mouseButtonPairs)
+            if(_mouseButton!=null)
+                foreach (var buttonPair in _mouseButton)
                 {
                     if(UnityEngine.Input.GetKeyDown(buttonPair.Key))
                         OnMouseButtonDown?.Invoke(buttonPair.Type);
@@ -54,11 +53,20 @@ namespace Main.Scripts.Input
                     if(UnityEngine.Input.GetKeyUp(buttonPair.Key))
                         OnMouseButtonUp?.Invoke(buttonPair.Type);
                 }
+
+            if (_keyboardButtons != null)
+                foreach (var buttonPair in _keyboardButtons)
+                {
+                    if(UnityEngine.Input.GetKeyDown(buttonPair.Key))
+                        OnKeyboardButtonClick?.Invoke(buttonPair.Type);
+                }
+            
         }
     }
     
-    public enum MouseButtonType{
-        PrimaryKey,
-        SecondaryKey
+    public enum ButtonType{
+        GrabItem,
+        PotionGuide,
+        CreatePotion
     }
 }
