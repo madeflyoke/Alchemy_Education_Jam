@@ -7,22 +7,24 @@ namespace Main.Scripts.Craft
 {
     public class Flask : MonoBehaviour, IDragable
     {
+        public event Action OnFlaskDestroy;
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
+        [SerializeField] private float _minHeight;
         private HashSet<IngredientRatio> _fertilizer = new HashSet<IngredientRatio>();
-        private bool _grabbed;
+        private Vector3 _defaultPosition;
         public HashSet<IngredientRatio> GetFertilizer() => _fertilizer;
 
         public void Setup(HashSet<IngredientRatio> fertilizer)
         {
             _fertilizer = fertilizer;
+            _defaultPosition = transform.position;
+
         }
 
         public IDragable GrabItem()
         {
-            if (_grabbed) return null;
-
-            _grabbed = true;
+            if (this == null) return null;
             _rigidbody.useGravity = false;
             _collider.enabled = false;
             return this;
@@ -33,10 +35,21 @@ namespace Main.Scripts.Craft
             transform.position = position;
         }
 
+        private void FixedUpdate()
+        {
+            if (transform.position.y < _minHeight)
+                transform.position = _defaultPosition;
+        }
+
         public void DropItem()
         {
             _collider.enabled = true;
             _rigidbody.useGravity = true;
+        }
+
+        private void OnDestroy()
+        {
+            OnFlaskDestroy?.Invoke();
         }
     }
 }
