@@ -6,7 +6,6 @@ namespace Main.Scripts.Ingredients
 {
     public class BaseIngredient : MonoBehaviour, IDragable
     {
-        
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
         [SerializeField] private ParticleSystem _orbEffect;

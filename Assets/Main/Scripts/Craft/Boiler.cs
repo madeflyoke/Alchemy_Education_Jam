@@ -39,6 +39,8 @@ namespace Main.Scripts.Craft
         {
             if (other.TryGetComponent(out BaseIngredient ingredient))
             {
+                ingredient.Collider.enabled = false;
+                Debug.Log(ingredient.Type);
                 if (_currentFertilizer.ContainsKey(ingredient.Type))
                     _currentFertilizer[ingredient.Type] += 1;
                 else
@@ -88,10 +90,8 @@ namespace Main.Scripts.Craft
 
         private void OnFlaskDestroy()
         {
-            Debug.Log("Destroy_Flask");
             _currentFlask.OnFlaskDestroy -= OnFlaskDestroy;
             _currentFlask = null;
-            Debug.Log(_currentFlask);
         }
 
         [Button]
