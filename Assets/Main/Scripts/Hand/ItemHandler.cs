@@ -15,15 +15,18 @@ namespace Main.Scripts.Hand
         
         public bool TryGrabItem()
         {
-            if (_itemInZone != null && _isHandleItem==false)
+            if (_itemInZone != null && _isHandleItem == false)
             {
-                _triggerZone.enabled = false;
-                _item = _itemInZone.GrabItem();
-                _itemInZone = null;
-                _isHandleItem = true;
-                return true;
+                if (_itemInZone.GrabItem() != null && !_isHandleItem)
+                {
+                    _triggerZone.enabled = false;
+                    _item = _itemInZone.GrabItem();
+                    _itemInZone = null;
+                    _isHandleItem = true;
+                    return true;
+                }
             }
-
+            
             return false;
         }
 

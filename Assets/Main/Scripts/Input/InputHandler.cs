@@ -60,7 +60,6 @@ namespace Main.Scripts.Input
                     if(UnityEngine.Input.GetKeyDown(buttonPair.Key))
                         OnKeyboardButtonClick?.Invoke(buttonPair.Type);
                 }
-            
         }
     }
     

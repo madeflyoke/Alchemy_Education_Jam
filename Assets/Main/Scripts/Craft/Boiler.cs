@@ -17,6 +17,7 @@ namespace Main.Scripts.Craft
         [SerializeField] private Transform FlaskSpawnPoint;
         [SerializeField] private Flask _prefab;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
+        private Flask _currentFlask;
 
         public void Enable()
         {
@@ -74,10 +75,23 @@ namespace Main.Scripts.Craft
         [Button]
         public void CreateFlask()
         {
-            var newFlask = Instantiate(_prefab);
-            newFlask.transform.position = FlaskSpawnPoint.position;
-            newFlask.Setup(CreateFertilizer());
+            if (_currentFlask == null)
+            {
+                _currentFlask = Instantiate(_prefab);
+                _currentFlask.transform.position = FlaskSpawnPoint.position;
+                _currentFlask.OnFlaskDestroy += OnFlaskDestroy;
+            }
+           
+            _currentFlask.Setup(CreateFertilizer());
             Clear();
+        }
+
+        private void OnFlaskDestroy()
+        {
+            Debug.Log("Destroy_Flask");
+            _currentFlask.OnFlaskDestroy -= OnFlaskDestroy;
+            _currentFlask = null;
+            Debug.Log(_currentFlask);
         }
 
         [Button]

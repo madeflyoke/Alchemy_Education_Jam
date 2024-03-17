@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DG.Tweening;
 using Main.Scripts.Flowers;
 using Main.Scripts.Input;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Main.Scripts.UI
         [Inject] private FlowerRecipeSetup _flowerRecipeSetup;
         [Inject] private InputHandler _inputHandler;
         [SerializeField] private GameObject _recepiesWindow;
+        [SerializeField] private CanvasGroup backGroup;
         private HashSet<IngredientRatio> _currentRecipe;
         private FlowerType _currentFlower;
         private StringBuilder _recipeDesc;
@@ -23,6 +25,7 @@ namespace Main.Scripts.UI
             _inputHandler.OnKeyboardButtonClick += Show;
             _inputHandler.OnKeyboardButtonClick += Hide;
             _recepiesWindow.gameObject.SetActive(false);
+            _isActive = false;
         }
 
         private void OnDisable()
@@ -45,18 +48,21 @@ namespace Main.Scripts.UI
         
         public void Show(ButtonType buttonType)
         {
+            if(_isActive) return;
             if (buttonType==ButtonType.PotionGuide)
             {
-                _isActive = true;
                 _recepiesWindow.gameObject.SetActive(true);
+                backGroup.DOFade(1, 0.2f).OnComplete(() => { _isActive = true; });
             }
         }
         
         public void Hide(ButtonType buttonType)
         {
+ 
+            if(!_isActive) return;
             if (buttonType==ButtonType.PotionGuide)
             {
-                _isActive = false;
+                backGroup.DOFade(0, 0.2f).OnComplete(() => { _isActive = false; });
                 _recepiesWindow.gameObject.SetActive(false);
             }
         }
