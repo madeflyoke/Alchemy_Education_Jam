@@ -74,6 +74,7 @@ namespace Main.Scripts.Level
         {
             _currentFlower = _flowersSetup.GetRandomFlower().Type;
             _recipeHelper.SetHelperByFlowerType(_currentFlower);
+            Debug.Log(_currentFlower);
             //
         }
     }

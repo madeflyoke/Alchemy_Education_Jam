@@ -15,10 +15,8 @@ namespace Main.Scripts.Hand
         
         public bool TryGrabItem()
         {
-            Debug.Log("TRY_GRAB");
             if (_itemInZone != null && _isHandleItem==false)
             {
-                Debug.Log("GRAB");
                 _triggerZone.enabled = false;
                 _item = _itemInZone.GrabItem();
                 _itemInZone = null;
@@ -31,10 +29,8 @@ namespace Main.Scripts.Hand
 
         public void TryDropItem()
         {
-            Debug.Log("TRY_DROP");
             if (_item != null && _isHandleItem)
             {
-                Debug.Log("DROP");
                 _isHandleItem = false;
                 _item.DropItem();
                 _item = null;

@@ -22,7 +22,10 @@ namespace Main.Scripts.Craft
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Flask flask))
+            {
                 CheckRecipe(flask.GetFertilizer());
+                GameObject.Destroy(flask.gameObject);
+            }
         }
 
         private void CheckRecipe(HashSet<IngredientRatio> recipe)
@@ -37,7 +40,8 @@ namespace Main.Scripts.Craft
 
         private void CreateFlower(FlowerType flowerType)
         {
-            _successParticles.Play();
+            if(_successParticles!=null)
+                _successParticles.Play();
             _plant.SetActive(false);
             var newFlower = Instantiate(_flowers.Flowers.Find(f => f.Type == flowerType).Prefab);
             newFlower.transform.position = _spawnPoint.position;
@@ -46,14 +50,16 @@ namespace Main.Scripts.Craft
 
         private void  PlayFailAnimation()
         {
-            _failedParticles.Play();
+            if(_failedParticles!=null)
+                _failedParticles.Play();
             Debug.Log("FAIL");
             OnFlowerGrow?.Invoke(FlowerType.NONE);
         }
 
         public void ResetPot()
         {
-            _resetParticles.Play();
+            if(_resetParticles!=null) 
+                _resetParticles.Play();
             _plant.SetActive(true);
         }
     }
