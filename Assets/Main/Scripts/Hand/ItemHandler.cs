@@ -7,9 +7,12 @@ namespace Main.Scripts.Hand
     {
         [SerializeField] private Transform _handlePoint;
         [SerializeField] private Collider _triggerZone;
+        [SerializeField] private HandRay _ray;
+        
         private IDragable _itemInZone;
         private IDragable _item;
         private bool _isHandleItem;
+        
         public bool TryGrabItem()
         {
             Debug.Log("TRY_GRAB");
@@ -50,15 +53,17 @@ namespace Main.Scripts.Hand
         {
             if (other.TryGetComponent<IDragable>(out IDragable item))
             {
+                _ray.ShortUntil(other.transform.position);
                 if(item != null && item!=_itemInZone)
                     _itemInZone = item;
             }
         }
-
+        
         private void OnTriggerExit(Collider other)
         {
             if (other.TryGetComponent<IDragable>(out IDragable item))
             {
+                _ray.SetDefault();
                 if(_itemInZone!=null && item== _itemInZone)
                     _itemInZone = null;
             }

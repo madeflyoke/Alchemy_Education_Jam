@@ -1,4 +1,5 @@
 using System;
+using Main.Scripts.Hand;
 using UnityEngine;
 
 namespace Main.Scripts.Ingredients
@@ -36,6 +37,28 @@ namespace Main.Scripts.Ingredients
             transform.position = position;
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent<ItemHandler>(out _))
+            {
+                PauseParticle(false);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent<ItemHandler>(out _))
+            {
+                PauseParticle(true);
+            }
+        }
+
+        private void PauseParticle(bool isPaused)
+        {
+            var module = _orbEffect.main;
+            module.simulationSpeed = isPaused? 0.1f:2f;
+        }
+
         public void DropItem()
         {
             IsDropped = true;
@@ -52,6 +75,10 @@ namespace Main.Scripts.Ingredients
         private void OnValidate()
         {
             _orbEffect ??= GetComponentInChildren<ParticleSystem>();
+            if (_orbEffect)
+            {
+                PauseParticle(true);
+            }
         }
     }
 }
