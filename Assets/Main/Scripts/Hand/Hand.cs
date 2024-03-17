@@ -10,7 +10,7 @@ namespace Main.Scripts.Hand
         [SerializeField] private ItemHandler _itemHandler;
         [SerializeField] private HandMovementLimiter _movementLimiter;
         private Vector3 _currentPos => transform.position;
-        private float _speed = 1f;
+        private float _speed = 1.5f;
         private bool _isPressed = false;
         private bool _isHoldingItem;
         public bool enable = false;
@@ -19,7 +19,7 @@ namespace Main.Scripts.Hand
         {
             _inputHandler.OnMouseButtonDown += HandleButtonDownEvent;
             _inputHandler.OnMouseButtonUp += HandleButtonUpEvent;
-            enable = true;
+           enable = true;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

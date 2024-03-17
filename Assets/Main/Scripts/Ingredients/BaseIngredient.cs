@@ -9,12 +9,14 @@ namespace Main.Scripts.Ingredients
         [SerializeField] private Collider _collider;
         public IngredientsType Type { get; private set; }
         public IngredientsType Type_TEST;
+        public bool IsDropped { get; private set; }
         
         public Rigidbody Rigidbody => _rigidbody;
         public Collider Collider => _collider;
 
         public IDragable GrabItem()
         {
+            if (IsDropped) return null;
             var clone = Instantiate(this);
             clone.Collider.enabled = false;
             clone.Rigidbody.useGravity = false;
@@ -32,6 +34,7 @@ namespace Main.Scripts.Ingredients
 
         public void DropItem()
         {
+            IsDropped = true;
             _rigidbody.useGravity = true;
             _collider.enabled = true;
         }
