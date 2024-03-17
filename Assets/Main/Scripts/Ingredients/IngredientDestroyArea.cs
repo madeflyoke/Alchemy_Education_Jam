@@ -12,7 +12,6 @@ namespace Main.Scripts.Ingredients
                 if(ingredient.IsDropped)
                     GameObject.Destroy(ingredient.gameObject);
             }
-               
         }
     }
 }

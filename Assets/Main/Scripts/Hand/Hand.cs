@@ -9,18 +9,18 @@ namespace Main.Scripts.Hand
     {
         [Inject] private InputHandler _inputHandler;
         [SerializeField] private ItemHandler _itemHandler;
-        [SerializeField] private HandMovementLimiter _movementLimiter;
+        private HandMovementLimiter _movementLimiter;
         private Vector3 _currentPos => transform.position;
         private float _speed = 1.5f;
         private bool _isPressed = false;
         private bool _isHoldingItem;
         public bool enable = false;
-        
-        private void Start()
+
+        public void Setup(HandMovementLimiter movementLimiter)
         {
+            _movementLimiter = movementLimiter;
             _inputHandler.OnMouseButtonDown += HandleButtonDownEvent;
             _inputHandler.OnMouseButtonUp += HandleButtonUpEvent;
-           enable = true;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
