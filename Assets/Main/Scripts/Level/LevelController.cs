@@ -17,6 +17,7 @@ namespace Main.Scripts.Level
         [SerializeField] private FlowerPot _flowerPot;
         [SerializeField] private Boiler _boiler;
         [SerializeField] private Character.Character _witch;
+        [SerializeField] private TargetFlowerUILabel _targetLabel;
         private FlowersSetup _flowersSetup;
         private RecipeHelper _recipeHelper;
         private InputHandler _inputHandler;
@@ -74,7 +75,7 @@ namespace Main.Scripts.Level
         {
             _currentFlower = _flowersSetup.GetRandomFlower().Type;
             _recipeHelper.SetHelperByFlowerType(_currentFlower);
-            Debug.Log(_currentFlower);
+            _targetLabel.SetFlowerText(_currentFlower.ToString());
             //
         }
     }
