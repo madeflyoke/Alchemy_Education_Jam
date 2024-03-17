@@ -17,10 +17,11 @@ namespace Main.Scripts.Hand
         {
             if (_itemInZone != null && _isHandleItem == false)
             {
-                if (_itemInZone.GrabItem() != null && !_isHandleItem)
+                var newItem = _itemInZone.GrabItem();
+                if (newItem != null && !_isHandleItem)
                 {
                     _triggerZone.enabled = false;
-                    _item = _itemInZone.GrabItem();
+                    _item = newItem;
                     _itemInZone = null;
                     _isHandleItem = true;
                     return true;
