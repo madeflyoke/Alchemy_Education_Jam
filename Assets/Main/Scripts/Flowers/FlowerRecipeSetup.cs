@@ -10,12 +10,12 @@ namespace Main.Scripts.Flowers
     {
         [SerializeField] private List<FlowerRecipeData> _recipes = new List<FlowerRecipeData>();
 
-        public HashSet<IngredientsType> GetFlowerRecipe(FlowerType type)
+        public HashSet<IngredientRatio> GetFlowerRecipe(FlowerType type)
         {
-            var recipe = _recipes.Find(f => f.FlowerType = type).Ingredients;
+            var recipe = _recipes.Find(f => f.FlowerType == type).Ingredients;
             if (recipe != null)
             {
-                var result = new  HashSet<IngredientsType>();
+                var result = new  HashSet<IngredientRatio>();
                 foreach (var i in recipe)
                     result.Add(i);
                 
@@ -23,13 +23,35 @@ namespace Main.Scripts.Flowers
             }
 
             return null;
-        }  
+        }
+
+        public FlowerType FindFlowerByRecipe(HashSet<IngredientRatio> ingredients)
+        {
+            var result = FlowerType.NONE;
+            foreach (var recipe in _recipes)
+            {
+                var currentRecipe = new HashSet<IngredientRatio>(recipe.Ingredients);
+                if (currentRecipe.SetEquals(ingredients))
+                {
+                    result = recipe.FlowerType;
+                    break;
+                }
+            }
+            return result;
+        }
     }
 
     [Serializable]
     public class FlowerRecipeData
     {
         public FlowerType FlowerType;
-        public List<IngredientsType> Ingredients = new List<IngredientsType>();
+        public List<IngredientRatio> Ingredients = new List<IngredientRatio>();
+    }
+
+    [Serializable]
+    public struct IngredientRatio
+    {
+        public IngredientsType Ingredient;
+        public int Amount;
     }
 }

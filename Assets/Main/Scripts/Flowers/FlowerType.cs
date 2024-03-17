@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class FlowerType : MonoBehaviour
+namespace Main.Scripts.Flowers
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum FlowerType 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        NONE,
+        PURPLE_FLOWER
     }
 }

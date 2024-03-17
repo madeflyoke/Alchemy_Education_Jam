@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f81b16709c93c4b8482fc93ea709ce, type: 3}
-  m_Name: New Recipes Setup
+  m_Script: {fileID: 11500000, guid: 9b0033137fbfe17419254b963c9f7f7b, type: 3}
+  m_Name: New Flowers Setup
   m_EditorClassIdentifier: 
-  _recipes:
-  - FlowerType: 1
-    Ingredients:
-    - Ingredient: 1
-      Amount: 1
-    - Ingredient: 2
-      Amount: 1
+  Flowers:
+  - Type: 1
+    Prefab: {fileID: 8666296728781798382, guid: 57a8f745f8736b046ab82bb3d3531a69, type: 3}
