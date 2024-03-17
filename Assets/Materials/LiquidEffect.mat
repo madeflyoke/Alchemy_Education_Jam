@@ -32,7 +32,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _FoamColor
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -55,15 +55,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _Amplitude: 0
-    - _FoamWidth: 0.04
+    - _FoamWidth: 0
     - _Foam_Smoothness: 0
     - _Frequency: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Rim_Power: 2
     m_Colors:
-    - _BottomColor: {r: 0, g: 0.8207547, b: 0.2961154, a: 1}
-    - _FoamColor: {r: 0.2850213, g: 0.990566, b: 0.7492778, a: 1}
-    - _Rim_Color: {r: 0.693879, g: 1, b: 0.3254717, a: 1}
-    - _TopColor: {r: 0, g: 0.6946828, b: 0.764151, a: 1}
+    - _BottomColor: {r: 0.41259345, g: 0.12207189, b: 0.509434, a: 1}
+    - _FoamColor: {r: 0.77259696, g: 0.43001068, b: 0.8867924, a: 1}
+    - _Rim_Color: {r: 0.6526937, g: 0.43447843, b: 0.7264151, a: 1}
+    - _TopColor: {r: 0.63711876, g: 0.3728017, b: 0.7264151, a: 1}
   m_BuildTextureStacks: []
