@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Lean.Pool;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Main.Scripts.Audio
         [SerializeField] private AudioSource _audioSourcePrefab;
         [SerializeField, Range(0.01f,1f)] private float _soundsVolume;
         [SerializeField] private List<ClipBySoundType> _clips;
+        [SerializeField] private AudioSource _mainMusic;
         
         private void Awake()
         {
@@ -23,7 +25,15 @@ namespace Main.Scripts.Audio
             }
             Destroy(gameObject);
         }
-        
+
+        private void Start()
+        {
+            var defaultMusicVolume = _mainMusic.volume;
+            _mainMusic.volume = 0f;
+            _mainMusic.Play();
+            _mainMusic.DOFade(defaultMusicVolume, 5f).SetDelay(3f);
+        }
+
         public void PlayClip(SoundType soundType, float customVolume = 0f)
         {
             var audioSource = LeanPool.Spawn(_audioSourcePrefab);

@@ -53,6 +53,7 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 2aa42b757137445eea181c743c2cc9e4, type: 3}
   - SoundType: 1
     Clip: {fileID: 8300000, guid: ea585a7758a3e48c89e2321f9564391f, type: 3}
+  _mainMusic: {fileID: 7320005697209274458}
 --- !u!82 &7320005697209274458
 AudioSource:
   m_ObjectHideFlags: 0
@@ -63,11 +64,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: c6b6b5016aa63d34c8fcd0408ab777c4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.015
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -20,12 +20,10 @@ namespace Main.Scripts.Hand
          if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse0))
          {
             Grab(true);
-            SoundController.Instance?.PlayClip(SoundType.HOLD_CURSOR);
          }
          else if(UnityEngine.Input.GetKeyUp(KeyCode.Mouse0))
          {
             Grab(false);
-            SoundController.Instance?.PlayClip(SoundType.RELEASE_CURSOR);
          }
       }
 

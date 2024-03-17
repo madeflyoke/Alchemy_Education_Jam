@@ -1,3 +1,4 @@
+using System.Text;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Main.Scripts.Craft;
@@ -75,7 +76,11 @@ namespace Main.Scripts.Level
         {
             _currentFlower = _flowersSetup.GetRandomFlower().Type;
             _recipeHelper.SetHelperByFlowerType(_currentFlower);
-            _targetLabel.SetFlowerText(_currentFlower.ToString());
+            var builder = new StringBuilder();
+            builder.Append(_currentFlower.ToString());
+            builder.Replace("_", " ");
+
+            _targetLabel.SetFlowerText(builder.ToString());
             //
         }
     }

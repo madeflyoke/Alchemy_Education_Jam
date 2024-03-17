@@ -1,4 +1,5 @@
 using System;
+using Main.Scripts.Audio;
 using Main.Scripts.Input;
 using UnityEngine;
 using Zenject;
@@ -41,6 +42,7 @@ namespace Main.Scripts.Hand
             {
                 case ButtonType.GrabItem:
                 {
+                    SoundController.Instance?.PlayClip(SoundType.HOLD_CURSOR);
                     _isPressed = true;
                     _isHoldingItem = _itemHandler.TryGrabItem();
                     break;
@@ -54,6 +56,7 @@ namespace Main.Scripts.Hand
             {
                 case ButtonType.GrabItem:
                 {
+                    SoundController.Instance?.PlayClip(SoundType.RELEASE_CURSOR);
                     _isPressed = false;
                     _itemHandler.TryDropItem();
                     break;

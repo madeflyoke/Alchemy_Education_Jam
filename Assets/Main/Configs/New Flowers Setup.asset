@@ -14,4 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Flowers:
   - Type: 1
-    Prefab: {fileID: 8666296728781798382, guid: 57a8f745f8736b046ab82bb3d3531a69, type: 3}
+    Prefab: {fileID: 5617532981355745910, guid: 31737aa2357797848aac61f5b79adb10, type: 3}
+  - Type: 2
+    Prefab: {fileID: 5132338625474284551, guid: 050878ce477abd64187988a89a30d95e, type: 3}
+  - Type: 3
+    Prefab: {fileID: 7762713467408290715, guid: a9e8bb3bd4600704898b68c6fd6e30a0, type: 3}
+  - Type: 4
+    Prefab: {fileID: 1523364759398338136, guid: 07ce9afacb51c284ea5cb06eeb44f1e6, type: 3}
+  - Type: 5
+    Prefab: {fileID: 3624128209259942535, guid: ff4150436270ecb498ffa9a3adb22876, type: 3}

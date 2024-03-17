@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 4105212725067898319}
   - component: {fileID: 29673025776181888}
   - component: {fileID: 5575536386106724107}
+  - component: {fileID: 3254184648864339461}
   m_Layer: 5
   m_Name: Recipes
   m_TagString: Untagged
@@ -524,6 +525,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &3254184648864339461
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362055317945498724}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3842117458619977136
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,9 +604,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Flower of Celestial Sight\n    \t Cyclop Eye\n \t Unicorn Horn\r\n\t
     Mushroom x2\n\t Pixie Dust\n- Ebon Essence Flower\t\r\n   \t Black Orb x2\n  
-    \t Vampire Blood\r\n\t Cyclop Eye x2\n- Flower of Celestial Enchantment\n\t Pixie
-    Dust x3\n\t Unicorn Horn\n- Flower of Shadows and Light\n\t Black Orb x2\n\t
-    Unicorn Horn\n- Brew of Nature\n\tPixie Dust x2\n\tMushroom x2"
+    \t Vampire Blood\r\n\t Cyclop Eye x2\n- Flower of Enchantment\n\t Pixie Dust
+    x3\n\t Unicorn Horn\n- Flower of Shadows and Light\n\t Black Orb x2\n\t Unicorn
+    Horn\n- Brew of Nature\n\tPixie Dust x2\n\tMushroom x2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7456802edd1fade45b5102be6918954e, type: 2}
   m_sharedMaterial: {fileID: 3237000086520756457, guid: 7456802edd1fade45b5102be6918954e, type: 2}
@@ -1004,6 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _recepiesWindow: {fileID: 2362055317945498724}
+  backGroup: {fileID: 3254184648864339461}
 --- !u!1 &5698145717520500254
 GameObject:
   m_ObjectHideFlags: 0
