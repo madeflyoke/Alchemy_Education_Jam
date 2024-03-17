@@ -223,7 +223,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.12
+  m_Radius: 1.04
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2571479214758800891
 Rigidbody:
@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2571479214758800891}
   _collider: {fileID: 7944800857227078760}
+  _orbEffect: {fileID: 4044991569332141018}
   Type_TEST: 3
 --- !u!1 &6028409975998464056
 GameObject:
