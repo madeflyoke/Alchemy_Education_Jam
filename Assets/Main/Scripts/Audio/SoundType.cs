@@ -4,5 +4,7 @@ namespace Main.Scripts.Audio
     {
         HOLD_CURSOR = 0,
         RELEASE_CURSOR = 1,
+        WIN = 2,
+        LOSE = 3,
     }
 }
