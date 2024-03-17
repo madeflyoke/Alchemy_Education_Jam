@@ -47,19 +47,26 @@ namespace Main.Scripts.Level
             _boiler.Enable();
         }
 
-        private void CheckResult(FlowerType type)
+        private async void CheckResult(FlowerType type)
         {
             if (type == _currentFlower)
             {
+                _boiler.Disable();
                 Debug.Log("SUCCES");
                 _witch.TryPlayResultAnimation(true);
+                await UniTask.Delay(3000);
                 PeakRandomFlower();
+                _boiler.Enable();
+                _flowerPot.ResetPot();
             }
             else
             {
-                _witch.TryPlayResultAnimation(false);
-                _flowerPot.ChangePot();
+                _boiler.Disable();
                 Debug.Log("FLOWER SAME FLOWER");
+                _witch.TryPlayResultAnimation(false);
+                await UniTask.Delay(3000);
+                _boiler.Enable();
+                _flowerPot.ResetPot();
             }
         }
 
