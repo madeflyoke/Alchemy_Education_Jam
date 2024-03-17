@@ -77,8 +77,9 @@ namespace Main.Scripts.Level
             _currentFlower = _flowersSetup.GetRandomFlower().Type;
             _recipeHelper.SetHelperByFlowerType(_currentFlower);
             var builder = new StringBuilder();
-            builder.Replace("_", " ");
             builder.Append(_currentFlower.ToString());
+            builder.Replace("_", " ");
+
             _targetLabel.SetFlowerText(builder.ToString());
             //
         }
