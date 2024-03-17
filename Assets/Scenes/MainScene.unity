@@ -441,14 +441,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[UI]'
       objectReference: {fileID: 0}
-    - target: {fileID: 10060630270145384, guid: 15b3ec805daedc54a9c9573bf561636c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 751491393895611236, guid: 15b3ec805daedc54a9c9573bf561636c, type: 3}
-      propertyPath: backGroup
-      value: 
-      objectReference: {fileID: 1554012033}
     - target: {fileID: 8490491569660407710, guid: 15b3ec805daedc54a9c9573bf561636c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -492,16 +484,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2362055317945498724, guid: 15b3ec805daedc54a9c9573bf561636c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1554012033}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15b3ec805daedc54a9c9573bf561636c, type: 3}
---- !u!1 &1554012027 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2362055317945498724, guid: 15b3ec805daedc54a9c9573bf561636c, type: 3}
-  m_PrefabInstance: {fileID: 1554012026}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1554012028 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 751491393895611236, guid: 15b3ec805daedc54a9c9573bf561636c, type: 3}
@@ -524,18 +508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480ba0797400fc641bff508a885a5876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!225 &1554012033
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554012027}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!114 &1594956349 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8655457913800319953, guid: 15b3ec805daedc54a9c9573bf561636c, type: 3}
