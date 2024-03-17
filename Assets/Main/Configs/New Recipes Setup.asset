@@ -15,7 +15,37 @@ MonoBehaviour:
   _recipes:
   - FlowerType: 1
     Ingredients:
-    - Ingredient: 1
+    - Ingredient: 6
       Amount: 1
-    - Ingredient: 2
+    - Ingredient: 7
       Amount: 1
+    - Ingredient: 8
+      Amount: 2
+    - Ingredient: 5
+      Amount: 1
+  - FlowerType: 2
+    Ingredients:
+    - Ingredient: 4
+      Amount: 2
+    - Ingredient: 3
+      Amount: 1
+    - Ingredient: 6
+      Amount: 2
+  - FlowerType: 3
+    Ingredients:
+    - Ingredient: 5
+      Amount: 3
+    - Ingredient: 7
+      Amount: 1
+  - FlowerType: 4
+    Ingredients:
+    - Ingredient: 4
+      Amount: 2
+    - Ingredient: 7
+      Amount: 1
+  - FlowerType: 5
+    Ingredients:
+    - Ingredient: 5
+      Amount: 2
+    - Ingredient: 8
+      Amount: 2

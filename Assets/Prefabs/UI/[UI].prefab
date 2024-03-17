@@ -591,9 +591,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "- Flower of Celestial Sight\n    \t Cyclop Eye\n \t Unicorn Horn\r\n\t
     Mushroom x2\n\t Pixie Dust\n- Ebon Essence Flower\t\r\n   \t Black Orb x2\n  
-    \t Vampire Blood\r\n\t Cyclop Eye x2\n- Flower of Celestial Enchantment\n\t Pixie
-    Dust x3\n\t Unicorn Horn\n- Flower of Shadows and Light\n\t Black Orb x2\n\t
-    Unicorn Horn\n- Brew of Nature\n\tPixie Dust x2\n\tMushroom x2"
+    \t Vampire Blood\r\n\t Cyclop Eye x2\n- Flower of Enchantment\n\t Pixie Dust
+    x3\n\t Unicorn Horn\n- Flower of Shadows and Light\n\t Black Orb x2\n\t Unicorn
+    Horn\n- Brew of Nature\n\tPixie Dust x2\n\tMushroom x2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7456802edd1fade45b5102be6918954e, type: 2}
   m_sharedMaterial: {fileID: 3237000086520756457, guid: 7456802edd1fade45b5102be6918954e, type: 2}

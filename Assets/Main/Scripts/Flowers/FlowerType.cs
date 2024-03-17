@@ -3,11 +3,10 @@ namespace Main.Scripts.Flowers
     public enum FlowerType 
     {
         NONE,
-        PURPLE_FLOWER,
-        DARK_FLOWER,
-        RED_FLOWER,
-        GREEN_FLOWER,
-        BLUE_FLOWER,
-        WHITE_FLOWER,
+        Flower_of_Celestial_Sight,
+        Ebon_Essence_Flower	,
+        Flower_of_Enchantment,
+        Flower_of_Shadows_and_Light,
+        Brew_of_Nature,
     }
 }
