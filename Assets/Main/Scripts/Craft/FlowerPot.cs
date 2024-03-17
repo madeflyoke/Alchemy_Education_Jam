@@ -63,7 +63,8 @@ namespace Main.Scripts.Craft
                 _failedParticles.Play();
             
             _plant.SetActive(true);
-            GameObject.Destroy(_flower.gameObject);
+            if(_flower!=null)
+                GameObject.Destroy(_flower.gameObject);
         }
     }
 }
