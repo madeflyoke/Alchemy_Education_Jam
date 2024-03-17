@@ -58,7 +58,7 @@ namespace Main.Scripts.Level
                 await UniTask.Delay(3000);
                 PeakRandomFlower();
                 _boiler.Enable();
-                _flowerPot.ResetPot();
+                _flowerPot.ResetPot(true);
             }
             else
             {
@@ -66,7 +66,7 @@ namespace Main.Scripts.Level
                 _witch.TryPlayResultAnimation(false);
                 await UniTask.Delay(3000);
                 _boiler.Enable();
-                _flowerPot.ResetPot();
+                _flowerPot.ResetPot(false);
             }
         }
 

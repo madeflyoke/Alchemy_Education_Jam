@@ -16,6 +16,7 @@ namespace Main.Scripts.Craft
         [Inject] private InputHandler _inputHandler;
         [SerializeField] private Transform FlaskSpawnPoint;
         [SerializeField] private Flask _prefab;
+        [SerializeField] private ParticleSystem _poof;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
@@ -55,7 +56,9 @@ namespace Main.Scripts.Craft
                     str.Append(item + " ");
                 }
 
-                //Debug.Log(str);
+                _poof.Play();
+
+                Debug.Log(str);
             }
         }
 

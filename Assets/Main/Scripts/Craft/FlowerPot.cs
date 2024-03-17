@@ -17,8 +17,7 @@ namespace Main.Scripts.Craft
         [Header("Particles")]
         [SerializeField] private ParticleSystem _successParticles;
         [SerializeField] private ParticleSystem _failedParticles;
-        [SerializeField] private ParticleSystem _resetParticles;
-        
+        private Flower _flower;
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Flask flask))
@@ -43,8 +42,8 @@ namespace Main.Scripts.Craft
             if(_successParticles!=null)
                 _successParticles.Play();
             _plant.SetActive(false);
-            var newFlower = Instantiate(_flowers.Flowers.Find(f => f.Type == flowerType).Prefab);
-            newFlower.transform.position = _spawnPoint.position;
+            _flower = Instantiate(_flowers.Flowers.Find(f => f.Type == flowerType).Prefab);
+            _flower.transform.position = _spawnPoint.position;
             OnFlowerGrow?.Invoke(flowerType);
         }
 
@@ -56,11 +55,15 @@ namespace Main.Scripts.Craft
             OnFlowerGrow?.Invoke(FlowerType.NONE);
         }
 
-        public void ResetPot()
+        public void ResetPot(bool good)
         {
-            if(_resetParticles!=null) 
-                _resetParticles.Play();
+            if(good)
+                _successParticles.Play();
+            if(!good)
+                _failedParticles.Play();
+            
             _plant.SetActive(true);
+            GameObject.Destroy(_flower.gameObject);
         }
     }
 }
