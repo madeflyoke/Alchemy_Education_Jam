@@ -41,5 +41,11 @@ namespace Main.Scripts.Craft
             Debug.Log("FAIL");
             OnFlowerGrow?.Invoke(FlowerType.NONE);
         }
+
+
+        public void ChangePot()
+        {
+            
+        }
     }
 }

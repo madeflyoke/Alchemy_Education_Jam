@@ -16,6 +16,7 @@ namespace Main.Scripts.Level
         [SerializeField] private Hand.HandMovementLimiter _levelBoarders;
         [SerializeField] private FlowerPot _flowerPot;
         [SerializeField] private Boiler _boiler;
+        [SerializeField] private Character.Character _witch;
         private FlowersSetup _flowersSetup;
         private RecipeHelper _recipeHelper;
         private InputHandler _inputHandler;
@@ -34,7 +35,7 @@ namespace Main.Scripts.Level
             _inputHandler.enable = true;
             PeakRandomFlower();
             _flowerPot.OnFlowerGrow += CheckResult;
-            _boiler.Enable();
+            _handPointer.Setup(_levelBoarders);
         }
 
         public async void Launch()
@@ -51,10 +52,13 @@ namespace Main.Scripts.Level
             if (type == _currentFlower)
             {
                 Debug.Log("SUCCES");
+                _witch.TryPlayResultAnimation(true);
                 PeakRandomFlower();
             }
             else
             {
+                _witch.TryPlayResultAnimation(false);
+                _flowerPot.ChangePot();
                 Debug.Log("FLOWER SAME FLOWER");
             }
         }
