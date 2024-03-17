@@ -8,6 +8,7 @@ namespace Main.Scripts.EditorHelpers
         [MenuItem("GameObject/SetPose", false, -10)] // now it show on right click on the object
         public static void SetPose()
         {
+#if UNITY_EDITOR
             TransformData transformDataOfObj01; //TransformData is a class that store and transfer the transform from
             TransformData transformDataOfObj02; // one object to another
        
@@ -29,6 +30,8 @@ namespace Main.Scripts.EditorHelpers
             }
            
             DestroyImmediate(obj02.GetComponent<Animator>()); //destroy the animator of the copy
+#endif
+
         }
     
      
