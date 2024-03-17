@@ -8,7 +8,8 @@ namespace Main.Scripts.Input
     public class InputConfig : ScriptableObject
     {
         public event Action OnSettingChange;
-        public List<MouseButtonPair> ButtonPairs = new List<MouseButtonPair>();
+        public List<ButtonPair> MouseButtonPairs = new List<ButtonPair>();
+        public List<ButtonPair> KeyboardButtonPairs = new List<ButtonPair>();
         public float MouseSensitivity;
         
         public void SaveChanges(){
@@ -17,9 +18,9 @@ namespace Main.Scripts.Input
     }
 
     [Serializable]
-    public struct MouseButtonPair
+    public struct ButtonPair
     {
-        public MouseButtonType Type;
+        public ButtonType Type;
         public KeyCode Key;
     }
 }

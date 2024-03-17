@@ -1,12 +1,13 @@
 using System;
 using Main.Scripts.Input;
 using UnityEngine;
+using Zenject;
 
 namespace Main.Scripts.Hand
 {
     public class Hand : MonoBehaviour
     {
-        [SerializeField] private InputHandler _inputHandler;
+        [Inject] private InputHandler _inputHandler;
         [SerializeField] private ItemHandler _itemHandler;
         [SerializeField] private HandMovementLimiter _movementLimiter;
         private Vector3 _currentPos => transform.position;
@@ -34,11 +35,11 @@ namespace Main.Scripts.Hand
             transform.position += new Vector3(nextPos.x,0,nextPos.y);
         }
 
-        private void HandleButtonDownEvent(MouseButtonType type)
+        private void HandleButtonDownEvent(ButtonType type)
         {
             switch (type)
             {
-                case MouseButtonType.PrimaryKey:
+                case ButtonType.GrabItem:
                 {
                     _isPressed = true;
                     _isHoldingItem = _itemHandler.TryGrabItem();
@@ -47,11 +48,11 @@ namespace Main.Scripts.Hand
             }
         }
         
-        private void HandleButtonUpEvent(MouseButtonType type)
+        private void HandleButtonUpEvent(ButtonType type)
         {
             switch (type)
             {
-                case MouseButtonType.PrimaryKey:
+                case ButtonType.GrabItem:
                 {
                     _isPressed = false;
                     _itemHandler.TryDropItem();
