@@ -54,7 +54,6 @@ namespace Main.Scripts.Level
             if (type == _currentFlower)
             {
                 _boiler.Disable();
-                Debug.Log("SUCCES");
                 _witch.TryPlayResultAnimation(true);
                 await UniTask.Delay(3000);
                 PeakRandomFlower();
@@ -64,7 +63,6 @@ namespace Main.Scripts.Level
             else
             {
                 _boiler.Disable();
-                Debug.Log("FLOWER SAME FLOWER");
                 _witch.TryPlayResultAnimation(false);
                 await UniTask.Delay(3000);
                 _boiler.Enable();
@@ -79,9 +77,7 @@ namespace Main.Scripts.Level
             var builder = new StringBuilder();
             builder.Append(_currentFlower.ToString());
             builder.Replace("_", " ");
-
             _targetLabel.SetFlowerText(builder.ToString());
-            //
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Main.Scripts.Craft
             if (other.TryGetComponent(out BaseIngredient ingredient))
             {
                 ingredient.Collider.enabled = false;
-                Debug.Log(ingredient.Type);
+               // Debug.Log(ingredient.Type);
                 if (_currentFertilizer.ContainsKey(ingredient.Type))
                     _currentFertilizer[ingredient.Type] += 1;
                 else
@@ -55,7 +55,7 @@ namespace Main.Scripts.Craft
                     str.Append(item + " ");
                 }
 
-                Debug.Log(str);
+                //Debug.Log(str);
             }
         }
 
