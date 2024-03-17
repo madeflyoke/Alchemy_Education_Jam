@@ -1,6 +1,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using Main.Scripts.Audio;
 using Main.Scripts.Craft;
 using Main.Scripts.Flowers;
 using Main.Scripts.Input;
@@ -60,6 +61,7 @@ namespace Main.Scripts.Level
                 PeakRandomFlower();
                 _boiler.Enable();
                 _flowerPot.ResetPot();
+                SoundController.Instance?.PlayClip(SoundType.WIN);
             }
             else
             {
@@ -69,6 +71,7 @@ namespace Main.Scripts.Level
                 await UniTask.Delay(3000);
                 _boiler.Enable();
                 _flowerPot.ResetPot();
+                SoundController.Instance?.PlayClip(SoundType.LOSE);
             }
         }
 
