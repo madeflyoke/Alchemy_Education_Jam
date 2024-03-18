@@ -9350,6 +9350,7 @@ Transform:
   - {fileID: 8161483358471109946}
   - {fileID: 1388496178052221587}
   - {fileID: 4101108857080941069}
+  - {fileID: 3347195814628937794}
   m_Father: {fileID: 2010485215636434809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &2990088851885034118
@@ -9388,6 +9389,7 @@ MonoBehaviour:
   _spawnPoint: {fileID: 404497004862814902}
   _plant: {fileID: 4736689894448520265}
   _successParticles: {fileID: 1589330885359794024}
+  _neutralParticles: {fileID: 42713931118554407}
   _failedParticles: {fileID: 4440704440879790070}
 --- !u!1 &3429473922179266948
 GameObject:
@@ -21856,6 +21858,105 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6867957825831436071, guid: 6038555caa1893f45a9cca6ea77cb94b, type: 3}
   m_PrefabInstance: {fileID: 3678043686671185439}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4749325108489270891
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2519068891224352835}
+    m_Modifications:
+    - target: {fileID: 912804578974727680, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_Name
+      value: CloudPoofWhite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719559233028266828, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719559233028266828, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719559233028266828, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821395005739485326, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5821395005739485326, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.031970855
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.031970855
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.031970855
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0735
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.974166
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.22583331
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+--- !u!198 &42713931118554407 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4719559233028266828, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+  m_PrefabInstance: {fileID: 4749325108489270891}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3347195814628937794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
+  m_PrefabInstance: {fileID: 4749325108489270891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4932574229756908203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22096,7 +22197,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 912804578974727680, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_Name
-      value: CloudPoof (2)
+      value: CloudPoofGreen
       objectReference: {fileID: 0}
     - target: {fileID: 4719559233028266828, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
@@ -22120,15 +22221,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.024634738
+      value: 0.031970855
       objectReference: {fileID: 0}
     - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.024634738
+      value: 0.031970855
       objectReference: {fileID: 0}
     - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.024634738
+      value: 0.031970855
       objectReference: {fileID: 0}
     - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22196,6 +22297,10 @@ PrefabInstance:
     - target: {fileID: 1925771155232809563, guid: 2766c28a91004524a88e311f74ebbbfc, type: 3}
       propertyPath: RotationModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925771155232809563, guid: 2766c28a91004524a88e311f74ebbbfc, type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4212223420524110552, guid: 2766c28a91004524a88e311f74ebbbfc, type: 3}
       propertyPath: m_LocalScale.x
@@ -22470,7 +22575,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 912804578974727680, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_Name
-      value: CloudPoof (1)
+      value: CloudPoofBlack
       objectReference: {fileID: 0}
     - target: {fileID: 4719559233028266828, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
@@ -22498,15 +22603,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.024634738
+      value: 0.031970855
       objectReference: {fileID: 0}
     - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.024634738
+      value: 0.031970855
       objectReference: {fileID: 0}
     - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.024634738
+      value: 0.031970855
       objectReference: {fileID: 0}
     - target: {fileID: 8042125867628455465, guid: f3d006981381d404384e2254ceaa44ed, type: 3}
       propertyPath: m_LocalPosition.x

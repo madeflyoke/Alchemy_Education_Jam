@@ -90,7 +90,7 @@ namespace Main.Scripts.Craft
         {
             if (_currentFlask == null)
             {
-                _currentFlask = Instantiate(_prefab);
+                _currentFlask = LeanPool.Spawn(_prefab);
                 _currentFlask.transform.position = FlaskSpawnPoint.position;
                 _currentFlask.OnFlaskDestroy += OnFlaskDestroy;
             }

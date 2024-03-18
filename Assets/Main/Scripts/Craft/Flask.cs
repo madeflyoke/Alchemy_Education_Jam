@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Lean.Pool;
 using Main.Scripts.Flowers;
 using UnityEngine;
 
@@ -51,8 +52,9 @@ namespace Main.Scripts.Craft
             _rigidbody.useGravity = true;
         }
 
-        private void OnDestroy()
+        public void Despawn()
         {
+            LeanPool.Despawn(this);
             OnFlaskDestroy?.Invoke();
         }
     }

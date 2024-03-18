@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Lean.Pool;
 using Main.Scripts.Flowers;
 using UnityEngine;
 using Zenject;
@@ -16,6 +17,7 @@ namespace Main.Scripts.Craft
         [Space]
         [Header("Particles")]
         [SerializeField] private ParticleSystem _successParticles;
+        [SerializeField] private ParticleSystem _neutralParticles;
         [SerializeField] private ParticleSystem _failedParticles;
         private Flower _flower;
         private void OnTriggerEnter(Collider other)
@@ -23,7 +25,7 @@ namespace Main.Scripts.Craft
             if (other.TryGetComponent(out Flask flask))
             {
                 CheckRecipe(flask.GetFertilizer());
-                GameObject.Destroy(flask.gameObject);
+                flask.Despawn();
             }
         }
 
@@ -39,8 +41,7 @@ namespace Main.Scripts.Craft
 
         private void CreateFlower(FlowerType flowerType)
         {
-            if(_successParticles!=null)
-                _successParticles.Play();
+            _neutralParticles.Play();
             _plant.SetActive(false);
             _flower = Instantiate(_flowers.Flowers.Find(f => f.Type == flowerType).Prefab);
             _flower.transform.position = _spawnPoint.position;
