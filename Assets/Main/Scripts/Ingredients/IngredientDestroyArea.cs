@@ -1,4 +1,5 @@
 using System;
+using Lean.Pool;
 using UnityEngine;
 
 namespace Main.Scripts.Ingredients
@@ -9,8 +10,10 @@ namespace Main.Scripts.Ingredients
         {
             if (other.TryGetComponent(out BaseIngredient ingredient))
             {
-                if(ingredient.IsDropped)
-                    GameObject.Destroy(ingredient.gameObject);
+                if (ingredient.IsDropped)
+                {
+                    LeanPool.Despawn(ingredient);
+                }
             }
         }
     }

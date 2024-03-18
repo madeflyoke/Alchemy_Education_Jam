@@ -5,9 +5,12 @@ using UnityEngine;
 
 namespace Main.Scripts.Craft
 {
-    public class Flask : MonoBehaviour, IDragable
+    public class Flask : MonoBehaviour, IDraggable
     {
         public event Action OnFlaskDestroy;
+        
+        public bool IsDropped { get; private set; }
+
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
         [SerializeField] private float _minHeight;
@@ -22,7 +25,7 @@ namespace Main.Scripts.Craft
 
         }
 
-        public IDragable GrabItem()
+        public IDraggable GrabItem()
         {
             if (this == null) return null;
             _rigidbody.useGravity = false;
@@ -43,6 +46,7 @@ namespace Main.Scripts.Craft
 
         public void DropItem()
         {
+            IsDropped = true;
             _collider.enabled = true;
             _rigidbody.useGravity = true;
         }

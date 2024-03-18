@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DG.Tweening;
 using EasyButtons;
+using Lean.Pool;
 using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
 using Main.Scripts.Ingredients;
@@ -48,18 +49,24 @@ namespace Main.Scripts.Craft
                 else
                     _currentFertilizer.Add(ingredient.Type, 1);
 
+                var defaultScale = ingredient.transform.localScale;
                 ingredient.transform.DOScale(Vector3.zero, 0.2f)
-                    .OnComplete(() => GameObject.Destroy(ingredient.gameObject));
+                    .OnComplete(() =>
+                    {
+                        ingredient.gameObject.SetActive(false);
+                        ingredient.transform.localScale = defaultScale;
+                        LeanPool.Despawn(ingredient);
+                    });
                 //TEST
-                var str = new StringBuilder();
-                foreach (var item in _currentFertilizer)
-                {
-                    str.Append(item + " ");
-                }
+                // var str = new StringBuilder();
+                // foreach (var item in _currentFertilizer)
+                // {
+                //     str.Append(item + " ");
+                // }
 
                 _poof.Play();
 
-                Debug.Log(str);
+                // Debug.Log(str);
             }
         }
 
