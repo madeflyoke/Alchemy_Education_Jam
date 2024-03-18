@@ -159,6 +159,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 379315237201404486}
     m_Modifications:
+    - target: {fileID: 5398422057251463110, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
+      propertyPath: RotationModule.x.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398422057251463110, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
+      propertyPath: RotationModule.y.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398422057251463110, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6276390496270644274, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
       propertyPath: m_Name
       value: Effect

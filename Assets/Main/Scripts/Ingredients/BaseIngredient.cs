@@ -56,8 +56,13 @@ namespace Main.Scripts.Ingredients
 
         private void PauseParticle(bool isPaused)
         {
-            var module = _orbEffect.main;
-            module.simulationSpeed = isPaused? 0.1f:2f;
+            var module = _orbEffect.rotationOverLifetime;
+
+            var value = isPaused ? 1f : 5f;
+
+            module.xMultiplier = value;
+            module.yMultiplier = value;
+            module.zMultiplier = value;
         }
 
         public void DropItem()
