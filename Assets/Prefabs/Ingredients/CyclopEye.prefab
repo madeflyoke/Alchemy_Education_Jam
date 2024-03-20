@@ -62,11 +62,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 2100000, guid: 2961811289de70e4eb5d2a1fa6ae14de, type: 2}
-  - {fileID: 0}
   - {fileID: 2100000, guid: 23f65519fc3fbdf44b47dd97524b8c29, type: 2}
-  - {fileID: 2100000, guid: c304acbf40d9d6f4ea9063313bbcce0f, type: 2}
+  - {fileID: 2100000, guid: edf590189ab091448aada36bbe2c1b21, type: 2}
+  - {fileID: 2100000, guid: edf590189ab091448aada36bbe2c1b21, type: 2}
+  - {fileID: 2100000, guid: edf590189ab091448aada36bbe2c1b21, type: 2}
   - {fileID: 2100000, guid: c304acbf40d9d6f4ea9063313bbcce0f, type: 2}
   - {fileID: 2100000, guid: edf590189ab091448aada36bbe2c1b21, type: 2}
   m_StaticBatchInfo:
@@ -288,6 +288,18 @@ PrefabInstance:
     - target: {fileID: 5398422057251463110, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
       propertyPath: RotationModule.enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398422057251463110, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
+      propertyPath: RotationModule.x.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398422057251463110, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
+      propertyPath: RotationModule.y.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5398422057251463110, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5398422057251463110, guid: a83ddc78b58f1854fb6f74f97abb2fe0, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a

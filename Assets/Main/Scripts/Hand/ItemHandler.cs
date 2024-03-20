@@ -9,8 +9,8 @@ namespace Main.Scripts.Hand
         [SerializeField] private Collider _triggerZone;
         [SerializeField] private HandRay _ray;
         
-        private IDragable _itemInZone;
-        private IDragable _item;
+        private IDraggable _itemInZone;
+        private IDraggable _item;
         private bool _isHandleItem;
         
         public bool TryGrabItem()
@@ -20,6 +20,7 @@ namespace Main.Scripts.Hand
                 var newItem = _itemInZone.GrabItem();
                 if (newItem != null && !_isHandleItem)
                 {
+                    _ray.SetActive(false);
                     _triggerZone.enabled = false;
                     _item = newItem;
                     _itemInZone = null;
@@ -35,6 +36,7 @@ namespace Main.Scripts.Hand
         {
             if (_item != null && _isHandleItem)
             {
+                _ray.SetActive(true);
                 _isHandleItem = false;
                 _item.DropItem();
                 _item = null;
@@ -51,21 +53,29 @@ namespace Main.Scripts.Hand
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<IDragable>(out IDragable item))
+            if (other.TryGetComponent<IDraggable>(out IDraggable item))
             {
-                _ray.ShortUntil(other.transform.position);
-                if(item != null && item!=_itemInZone)
+                if (item != null && item != _itemInZone)
+                {
                     _itemInZone = item;
+                    if (item.IsDropped==false)
+                    {
+                        _ray.ShortUntil(other.transform.position);
+                    }
+                }
             }
         }
         
+
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent<IDragable>(out IDragable item))
+            if (other.TryGetComponent<IDraggable>(out IDraggable item))
             {
-                _ray.SetDefault();
-                if(_itemInZone!=null && item== _itemInZone)
+                if (_itemInZone != null && item == _itemInZone)
+                {
+                    _ray.SetDefault();
                     _itemInZone = null;
+                }
             }
         }
     }

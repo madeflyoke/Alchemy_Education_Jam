@@ -25,5 +25,11 @@ namespace Main.Scripts.Hand
         {
             transform.localScale = Vector3.one;
         }
+
+        public void SetActive(bool isActive)
+        {
+            SetDefault();
+            gameObject.SetActive(isActive);
+        }
     }
 }

@@ -57,6 +57,8 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 1974292146f6d794eb9b26d9b6b56ff5, type: 3}
   - SoundType: 3
     Clip: {fileID: 8300000, guid: a0d85d484df87ea49947b31092a74752, type: 3}
+  - SoundType: 4
+    Clip: {fileID: 8300000, guid: 41fe4d9ba3ef6724ca43b1fe9c39ddea, type: 3}
   _mainMusic: {fileID: 7320005697209274458}
 --- !u!82 &7320005697209274458
 AudioSource:

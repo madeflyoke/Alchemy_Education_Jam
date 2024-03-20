@@ -1,26 +1,28 @@
 using System;
+using Lean.Pool;
 using Main.Scripts.Hand;
 using UnityEngine;
 
 namespace Main.Scripts.Ingredients
 {
-    public class BaseIngredient : MonoBehaviour, IDragable
+    public class BaseIngredient : MonoBehaviour, IDraggable
     {
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
         [SerializeField] private ParticleSystem _orbEffect;
         
+        public bool IsDropped { get; private set; }
+
         public IngredientsType Type { get; private set; }
         public IngredientsType Type_TEST;
-        public bool IsDropped { get; private set; }
         
         public Rigidbody Rigidbody => _rigidbody;
         public Collider Collider => _collider;
 
-        public IDragable GrabItem()
+        public IDraggable GrabItem()
         {
             if (IsDropped) return null;
-            var clone = Instantiate(this);
+            var clone = LeanPool.Spawn(this);
             clone.DisableOrbEffect();
             clone.Collider.enabled = false;
             clone.Rigidbody.useGravity = false;
@@ -54,8 +56,13 @@ namespace Main.Scripts.Ingredients
 
         private void PauseParticle(bool isPaused)
         {
-            var module = _orbEffect.main;
-            module.simulationSpeed = isPaused? 0.1f:2f;
+            var module = _orbEffect.rotationOverLifetime;
+
+            var value = isPaused ? 1f : 5f;
+
+            module.xMultiplier = value;
+            module.yMultiplier = value;
+            module.zMultiplier = value;
         }
 
         public void DropItem()
