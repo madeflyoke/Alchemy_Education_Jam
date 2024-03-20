@@ -1,53 +1,52 @@
 using System;
+using Main.Scripts.Audio;
+using Main.Scripts.Ingredients;
 using UnityEngine;
+using Zenject;
 
 namespace Main.Scripts.Hand
 {
     public class ItemHandler : MonoBehaviour
     {
+        [Inject] private SoundController _sound;
         [SerializeField] private Transform _handlePoint;
         [SerializeField] private Collider _triggerZone;
         [SerializeField] private HandRay _ray;
-        
+        private IDraggable _currentItem;
         private IDraggable _itemInZone;
-        private IDraggable _item;
-        private bool _isHandleItem;
-        
-        public bool TryGrabItem()
+
+        public void TryGrabItem()
         {
-            if (_itemInZone != null && _isHandleItem == false)
+            if (_itemInZone != null)
             {
                 var newItem = _itemInZone.GrabItem();
-                if (newItem != null && !_isHandleItem)
+                if (newItem != null)
                 {
                     _ray.SetActive(false);
                     _triggerZone.enabled = false;
-                    _item = newItem;
+                    _currentItem = newItem;
                     _itemInZone = null;
-                    _isHandleItem = true;
-                    return true;
+                    _sound.PlayClip(SoundType.HOLD_CURSOR);
                 }
             }
-            
-            return false;
         }
 
         public void TryDropItem()
         {
-            if (_item != null && _isHandleItem)
+            if (_currentItem != null )
             {
+                _sound.PlayClip(SoundType.RELEASE_CURSOR);
                 _ray.SetActive(true);
-                _isHandleItem = false;
-                _item.DropItem();
-                _item = null;
-                _triggerZone.enabled = true;
+                _currentItem.DropItem();
+                _currentItem = null;
             }
+            _triggerZone.enabled = true;
         }
 
         private void Update()
         {
-            if (_item != null && _isHandleItem)
-                _item.Move(_handlePoint.position);
+            if (_currentItem != null)
+                _currentItem.Move(_handlePoint.position);
         }
 
 
@@ -71,12 +70,13 @@ namespace Main.Scripts.Hand
         {
             if (other.TryGetComponent<IDraggable>(out IDraggable item))
             {
-                if (_itemInZone != null && item == _itemInZone)
+                if (item == _itemInZone)
                 {
                     _ray.SetDefault();
                     _itemInZone = null;
                 }
-            }
+            } 
+           
         }
     }
 }

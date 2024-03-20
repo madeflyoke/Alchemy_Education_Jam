@@ -20,7 +20,14 @@ namespace Main.Scripts.Input
     [Serializable]
     public struct ButtonPair
     {
-        public ButtonType Type;
-        public KeyCode Key;
+        public InputInteractionType InteractionType;
+        public KeysEventType EventType;
+        public KeyCode KeyType;
+    }
+
+    public enum InputInteractionType
+    {
+        UP,
+        DOWN
     }
 }

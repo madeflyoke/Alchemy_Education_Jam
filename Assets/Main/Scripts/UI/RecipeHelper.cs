@@ -22,16 +22,16 @@ namespace Main.Scripts.UI
 
         private void Start()
         {
-            _inputHandler.OnKeyboardButtonClick += Show;
-            _inputHandler.OnKeyboardButtonClick += Hide;
+            _inputHandler.SubscribeOnInputEvent(KeysEventType.ShowPotionGuide, Show);
+            _inputHandler.SubscribeOnInputEvent(KeysEventType.ShowPotionGuide, Hide);
             _recepiesWindow.gameObject.SetActive(false);
             _isActive = false;
         }
 
         private void OnDisable()
         {
-            _inputHandler.OnKeyboardButtonClick -= Show;
-            _inputHandler.OnKeyboardButtonClick -= Hide;
+            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.ShowPotionGuide, Show);
+            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.ShowPotionGuide, Hide);
         }
 
 
@@ -45,26 +45,21 @@ namespace Main.Scripts.UI
                 _recipeDesc.Append($"{item.Ingredient} (x{item.Amount})");
             }
         }
-        
-        public void Show(ButtonType buttonType)
+
+        private void Show()
         {
-            if(_isActive) return;
-            if (buttonType==ButtonType.PotionGuide)
-            {
-                _recepiesWindow.gameObject.SetActive(true);
-                backGroup.DOFade(1, 0.2f).OnComplete(() => { _isActive = true; });
-            }
+            if (_isActive) return;
+
+            _recepiesWindow.gameObject.SetActive(true);
+            backGroup.DOFade(1, 0.2f).OnComplete(() => { _isActive = true; });
         }
-        
-        public void Hide(ButtonType buttonType)
+
+        private void Hide()
         {
- 
-            if(!_isActive) return;
-            if (buttonType==ButtonType.PotionGuide)
-            {
-                backGroup.DOFade(0, 0.2f).OnComplete(() => { _isActive = false; });
-                _recepiesWindow.gameObject.SetActive(false);
-            }
+            if (!_isActive) return;
+
+            backGroup.DOFade(0, 0.2f).OnComplete(() => { _isActive = false; });
+            _recepiesWindow.gameObject.SetActive(false);
         }
     }
 }

@@ -22,20 +22,22 @@ namespace Main.Scripts.Level
         [SerializeField] private TargetFlowerUILabel _targetLabel;
         private FlowersSetup _flowersSetup;
         private RecipeHelper _recipeHelper;
+        private SoundController _soundController;
         private InputHandler _inputHandler;
         private FlowerType _currentFlower;
 
         [Inject]
-        public void Initialize(InputHandler inputHandler, RecipeHelper recipeHelper, FlowersSetup flowersSetup)
+        public void Initialize(InputHandler inputHandler, RecipeHelper recipeHelper, FlowersSetup flowersSetup, SoundController soundController)
         {
             _flowersSetup = flowersSetup;
             _recipeHelper = recipeHelper;
             _inputHandler = inputHandler;
+            _soundController = soundController;
         }
 
         public void SetupLevel()
         {
-            _inputHandler.enable = true;
+            _handPointer.gameObject.SetActive(false);
             PeakRandomFlower();
             _flowerPot.OnFlowerGrow += CheckResult;
             _handPointer.Setup(_levelBoarders);
@@ -43,9 +45,11 @@ namespace Main.Scripts.Level
 
         public async void Launch()
         {
-            _handPointer.enable = true;
-            await UniTask.Delay(100);
+            await UniTask.Delay(500);
+            
             _handPointer.transform.position = _handStartPoint.position;
+            _handPointer.enable = true;
+            _inputHandler.Enable();
             _handPointer.gameObject.SetActive(true);
             _boiler.Enable();
         }
@@ -61,7 +65,7 @@ namespace Main.Scripts.Level
                 PeakRandomFlower();
                 _boiler.Enable();
                
-                SoundController.Instance?.PlayClip(SoundType.WIN);
+                _soundController.PlayClip(SoundType.WIN);
                 _flowerPot.ResetPot(true);
             }
             else
@@ -71,7 +75,7 @@ namespace Main.Scripts.Level
                 await UniTask.Delay(3000);
                 _boiler.Enable();
               
-                SoundController.Instance?.PlayClip(SoundType.LOSE);
+                _soundController.PlayClip(SoundType.LOSE);
                 _flowerPot.ResetPot(false);
             }
         }

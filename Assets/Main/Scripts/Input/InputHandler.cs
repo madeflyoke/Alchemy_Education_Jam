@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -7,28 +8,39 @@ namespace Main.Scripts.Input
     public class InputHandler : MonoBehaviour
     {
         [Inject] private InputConfig _inputConfig;
-        public event Action<ButtonType> OnMouseButtonDown;
-        public event Action<ButtonType> OnMouseButtonUp;
-        public event Action<ButtonType> OnKeyboardButtonClick;
-
         private Vector2 _axis = Vector2.zero;
         private ButtonPair[] _mouseButton;
         private ButtonPair[] _keyboardButtons;
         public const string MouseXAxis = "Mouse X";
         public const string MouseYAxis = "Mouse Y";
-        public bool enable;
+        private bool _enable;
         public Vector2 GetAxisRaw() => _axis;
-        
+
+        private Dictionary<KeysEventType, List<Action>> _inputActionTable =
+            new Dictionary<KeysEventType, List<Action>>();
+
+        public void Enable()
+        {
+            _enable = true;
+            _axis = Vector2.zero;
+            UnityEngine.Input.ResetInputAxes();
+        }
+
+        public void Disable()
+        {
+            _enable = false;
+            _axis = Vector2.zero;
+        }
+
         private void Awake()
         {
-            _axis = Vector2.zero;
             _mouseButton = _inputConfig.MouseButtonPairs.ToArray();
             _keyboardButtons = _inputConfig.KeyboardButtonPairs.ToArray();
         }
 
         private void Update()
         {
-            if(!enable) return;
+            if (_enable == false) return;
 
             HandleAxis();
             HandleButtonInput();
@@ -36,36 +48,84 @@ namespace Main.Scripts.Input
 
         private void HandleAxis()
         {
-            var rawAxis = Vector2.zero;
-            rawAxis.x = UnityEngine.Input.GetAxisRaw(MouseXAxis) * _inputConfig.MouseSensitivity;
-            rawAxis.y = UnityEngine.Input.GetAxisRaw(MouseYAxis) * _inputConfig.MouseSensitivity;
-            _axis = rawAxis ;
+            _axis.x = UnityEngine.Input.GetAxisRaw(MouseXAxis);
+            _axis.y = UnityEngine.Input.GetAxisRaw(MouseYAxis);
+            _axis *= _inputConfig.MouseSensitivity;
         }
 
-        private void  HandleButtonInput()
+        private void HandleButtonInput()
         {
-            if(_mouseButton!=null)
-                foreach (var buttonPair in _mouseButton)
+            void CheckKeyInput(ButtonPair[] buttonPairs)
+            {
+                foreach (var buttonPair in buttonPairs)
                 {
-                    if(UnityEngine.Input.GetKeyDown(buttonPair.Key))
-                        OnMouseButtonDown?.Invoke(buttonPair.Type);
-                    
-                    if(UnityEngine.Input.GetKeyUp(buttonPair.Key))
-                        OnMouseButtonUp?.Invoke(buttonPair.Type);
-                }
+                    switch (buttonPair.InteractionType)
+                    {
+                        case InputInteractionType.DOWN:
+                        {
+                            if (HandleKeyDown(buttonPair.KeyType))
+                                CastAction(buttonPair.EventType);
+                            break;
+                        }
 
-            if (_keyboardButtons != null)
-                foreach (var buttonPair in _keyboardButtons)
-                {
-                    if(UnityEngine.Input.GetKeyDown(buttonPair.Key))
-                        OnKeyboardButtonClick?.Invoke(buttonPair.Type);
+                        case InputInteractionType.UP:
+                        {
+                            if (HandleKeyUpS(buttonPair.KeyType))
+                                CastAction(buttonPair.EventType);
+                            break;
+                        }
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
+            }
+
+            if (_mouseButton != null)
+                CheckKeyInput(_mouseButton);
+            if (_keyboardButtons != null)
+                CheckKeyInput(_keyboardButtons);
+        }
+
+
+        private bool HandleKeyDown(KeyCode key) => UnityEngine.Input.GetKeyDown(key);
+        private bool HandleKeyUpS(KeyCode key) => UnityEngine.Input.GetKeyUp(key);
+
+
+        private void CastAction(KeysEventType type)
+        {
+            if (_inputActionTable.ContainsKey(type))
+                _inputActionTable[type].ForEach(action => action?.Invoke());
+        }
+
+        public void SubscribeOnInputEvent(KeysEventType type, Action action)
+        {
+            if (_inputActionTable.ContainsKey(type))
+            {
+                if (!_inputActionTable[type].Contains(action))
+                    _inputActionTable[type].Add(action);
+            }
+
+            else
+            {
+                _inputActionTable.Add(type, new List<Action>());
+                _inputActionTable[type].Add(action);
+            }
+        }
+
+        public void UnsubscribeFromInputEvent(KeysEventType type, Action action)
+        {
+            if (!_inputActionTable.ContainsKey(type)) return;
+
+            if (_inputActionTable[type].Contains(action))
+                _inputActionTable[type].Remove(action);
         }
     }
-    
-    public enum ButtonType{
-        GrabItem,
-        PotionGuide,
+
+    public enum KeysEventType
+    {
+        MousePrimaryDown,
+        MousePrimaryUp,
+        ShowPotionGuide,
         CreatePotion
     }
 }
