@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
 using DG.Tweening;
+using EasyButtons;
 using Lean.Pool;
 using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
@@ -13,6 +16,9 @@ namespace Main.Scripts.Craft
     public class Boiler : MonoBehaviour
     {
         [Inject] private InputHandler _inputHandler;
+        
+        [SerializeField] private ParticleSystem _ingredientDropEffect;
+        [Header("Flask")]
         [SerializeField] private Transform FlaskSpawnPoint;
         [SerializeField] private Flask _flaskPrefab;
         [SerializeField] private ParticleSystem _ingredientDropEffect;
@@ -20,6 +26,8 @@ namespace Main.Scripts.Craft
         [SerializeField] private Color _defaultColor;
         [SerializeField] private MeshRenderer _water;
         private Color _currentColor;
+        [Header("Liquid")] 
+        [SerializeField] private MeshRenderer _liquidMeshRenderer;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
@@ -90,7 +98,7 @@ namespace Main.Scripts.Craft
 
             return recipe;
         }
-
+        
         private void CreateFlask()
         {
             if (_currentFlask == null)
@@ -105,6 +113,12 @@ namespace Main.Scripts.Craft
             Clear();
         }
 
+        private void ChangeLiquidColor()
+        {
+            
+        }
+        
+        
         private void OnFlaskDestroy()
         {
             _currentFlask.OnFlaskDestroy -= OnFlaskDestroy;
