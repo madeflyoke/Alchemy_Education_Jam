@@ -57,13 +57,10 @@ namespace Main.Scripts.Hand
                 if (item != null && item != _itemInZone)
                 {
                     _itemInZone = item;
-                    if (item.IsDropped==false)
-                    {
-                        _ray.ShortUntil(other.transform.position);
-                    }
                 }
             }
         }
+        
         
 
         private void OnTriggerExit(Collider other)
@@ -72,7 +69,6 @@ namespace Main.Scripts.Hand
             {
                 if (item == _itemInZone)
                 {
-                    _ray.SetDefault();
                     _itemInZone = null;
                 }
             } 

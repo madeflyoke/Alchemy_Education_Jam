@@ -9,10 +9,13 @@ namespace Main.Scripts.Ingredients
         public Color RelatedColor => _relatedColor;
        
         [SerializeField] private ParticleSystem _orbEffect;
-        private Color _relatedColor;
+        [SerializeField, HideInInspector] private Color _relatedColor;
 
-        private void Start()
+
+        private void OnValidate()
         {
+            if (!_orbEffect)
+                return;
             var color = _orbEffect.main.startColor.color;
             color.a = 1f;
 

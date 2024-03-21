@@ -168,6 +168,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2998707205507696869}
     m_Modifications:
+    - target: {fileID: 514967463342204721, guid: 0f31b219f22cd304988dbbf6ebf57029, type: 3}
+      propertyPath: _includeLayers.m_Bits
+      value: 16401
+      objectReference: {fileID: 0}
     - target: {fileID: 5533356862523026157, guid: 0f31b219f22cd304988dbbf6ebf57029, type: 3}
       propertyPath: m_Name
       value: HandHolder

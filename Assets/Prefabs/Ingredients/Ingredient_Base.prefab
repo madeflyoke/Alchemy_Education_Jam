@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _orbEffect: {fileID: 1008423189089257265}
+  _relatedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1475322762951832515
 GameObject:
   m_ObjectHideFlags: 0
