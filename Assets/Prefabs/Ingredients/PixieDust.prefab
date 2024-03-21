@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6192756071246760112}
   - component: {fileID: 9095115426415825843}
   - component: {fileID: 804499555983436488}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5055615953002584459}
   - component: {fileID: 1010473334480641296}
   - component: {fileID: 5989883351264990402}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1008423189089257265, guid: 8d50ac230bf8b544b9b54c64e967ff07, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.21176471
+      value: 0.47058824
       objectReference: {fileID: 0}
     - target: {fileID: 1008423189089257265, guid: 8d50ac230bf8b544b9b54c64e967ff07, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

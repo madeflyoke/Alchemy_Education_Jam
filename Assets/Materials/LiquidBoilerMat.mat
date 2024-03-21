@@ -47,9 +47,9 @@ Material:
     - _Speed: 1.34
     - _WaterWaves: 0.27
     m_Colors:
-    - _Color: {r: 0.50164145, g: 0.38974723, b: 0.6415094, a: 0}
+    - _Color: {r: 0.1252855, g: 0.15811141, b: 0.28017437, a: 0}
     - _WaveColor: {r: 0, g: 1, b: 0.13091493, a: 0}
-    - _WavesColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0}
+    - _WavesColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &4997920683794830313
 MonoBehaviour:

@@ -8,7 +8,7 @@ namespace Main.Scripts.Ingredients
         public static BaseIngredient CreateIngredient(BaseIngredient prefab, IngredientsType type)
         {
             var clone = LeanPool.Spawn(prefab);
-            clone.DisableOrbEffect();
+            clone.DisableOrbEffectCostyl();
             clone.Collider.enabled = false;
             clone.Rigidbody.useGravity = false;
             clone.Type = type;

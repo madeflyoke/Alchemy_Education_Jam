@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2231997224729410788}
   - component: {fileID: 6986501215654261279}
   - component: {fileID: 4534964920762201588}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BlackOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1008423189089257265, guid: 8d50ac230bf8b544b9b54c64e967ff07, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.33333334
+      value: 0.47058824
       objectReference: {fileID: 0}
     - target: {fileID: 1008423189089257265, guid: 8d50ac230bf8b544b9b54c64e967ff07, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

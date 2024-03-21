@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1671488685008362703}
   - component: {fileID: 9134657150905108756}
   - component: {fileID: 362937352736860563}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Helix003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1008423189089257265, guid: 8d50ac230bf8b544b9b54c64e967ff07, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.18431373
+      value: 0.3137255
       objectReference: {fileID: 0}
     - target: {fileID: 4649210953005821325, guid: 8d50ac230bf8b544b9b54c64e967ff07, type: 3}
       propertyPath: m_LocalPosition.x

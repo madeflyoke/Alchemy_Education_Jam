@@ -109,12 +109,6 @@ namespace Main.Scripts.Craft
             _currentFlask.Setup(CreateFertilizer(), _currentColor);
             Clear();
         }
-
-        private void ChangeLiquidColor()
-        {
-            
-        }
-        
         
         private void OnFlaskDestroy()
         {

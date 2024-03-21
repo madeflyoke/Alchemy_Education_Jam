@@ -9,17 +9,25 @@ namespace Main.Scripts.Ingredients
         public Color RelatedColor => _relatedColor;
        
         [SerializeField] private ParticleSystem _orbEffect;
-        [SerializeField, HideInInspector] private Color _relatedColor;
-
-
+        [SerializeField] private Color _relatedColor;
+        
+        public void DisableOrbEffect()
+        {
+            _orbEffect.gameObject.SetActive(false);
+            _orbEffect.Stop();
+        }
+        
         private void OnValidate()
         {
-            if (!_orbEffect)
-                return;
-            var color = _orbEffect.main.startColor.color;
-            color.a = 1f;
+            _orbEffect ??= GetComponentInChildren<ParticleSystem>();
+            if (_orbEffect)
+            {
+                var color = _orbEffect.main.startColor.color;
+                color.a = 1f;
 
-            _relatedColor = color;
+                _relatedColor = color;
+            }
         }
+        
     }
 }

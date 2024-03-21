@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1204447834680041842}
   - component: {fileID: 9195106113670619997}
   - component: {fileID: 5250500383127486851}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Ingredient_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,11 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8760cba23a633184d903f28d605621f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: 0
   _rigidbody: {fileID: 1204447834680041842}
   _collider: {fileID: 7259931688763756957}
-  _orbEffect: {fileID: 1008423189089257265}
-  _color: {r: 0, g: 0, b: 0, a: 0}
-  Type: 0
+  _ingredientVisual: {fileID: 5250500383127486851}
 --- !u!114 &5250500383127486851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8174567412434864954}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +157,7 @@ GameObject:
   - component: {fileID: 4032850416532674453}
   - component: {fileID: 1008423189089257265}
   - component: {fileID: 4256700005993035026}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: OrbEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
