@@ -11,7 +11,7 @@ namespace Main.Scripts.Ingredients
             clone.DisableOrbEffect();
             clone.Collider.enabled = false;
             clone.Rigidbody.useGravity = false;
-            clone.Setup(type);
+            clone.Type = type;
             return clone;
         }
     }

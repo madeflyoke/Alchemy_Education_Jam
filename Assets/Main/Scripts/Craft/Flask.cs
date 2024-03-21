@@ -15,15 +15,16 @@ namespace Main.Scripts.Craft
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
         [SerializeField] private float _minHeight;
+        [SerializeField] private MeshRenderer _water;
         private HashSet<IngredientRatio> _fertilizer = new HashSet<IngredientRatio>();
         private Vector3 _defaultPosition;
         public HashSet<IngredientRatio> GetFertilizer() => _fertilizer;
 
-        public void Setup(HashSet<IngredientRatio> fertilizer)
+        public void Setup(HashSet<IngredientRatio> fertilizer, Color color)
         {
             _fertilizer = fertilizer;
             _defaultPosition = transform.position;
-
+            _water.materials[0].color = color;
         }
 
         public Type Type()

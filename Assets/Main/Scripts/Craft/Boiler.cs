@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using DG.Tweening;
-using EasyButtons;
 using Lean.Pool;
 using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
@@ -19,19 +16,27 @@ namespace Main.Scripts.Craft
         [SerializeField] private Transform FlaskSpawnPoint;
         [SerializeField] private Flask _prefab;
         [SerializeField] private ParticleSystem _poof;
+        [SerializeField] private List<BoilerSlot> _slots = new List<BoilerSlot>();
+        [SerializeField] private Color _defaultColor;
+        [SerializeField] private MeshRenderer _water;
+        private Color _currentColor;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
-        public void Enable()=>
-            _inputHandler.SubscribeOnInputEvent(KeysEventType.CreatePotion,  CreateFlask);
+        private void Start()=> _water.materials[0].color = _defaultColor;
+
+        public void Enable() =>
+            _inputHandler.SubscribeOnInputEvent(KeysEventType.CreatePotion, CreateFlask);
 
         public void Disable() =>
-            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.CreatePotion,  CreateFlask);
+            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.CreatePotion, CreateFlask);
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out BaseIngredient ingredient))
             {
+                _currentColor = Color.Lerp(_currentColor, ingredient.Color,0.5f);
+                _water.materials[0].color = _currentColor;
                 ingredient.Collider.enabled = false;
 
                 if (_currentFertilizer.ContainsKey(ingredient.Type))
@@ -45,15 +50,29 @@ namespace Main.Scripts.Craft
                     {
                         ingredient.gameObject.SetActive(false);
                         ingredient.transform.localScale = defaultScale;
-                        LeanPool.Despawn(ingredient);
+
+                        bool alreadyInSlot = false;
+                        foreach (var slot in _slots)
+                            if (slot.Type == ingredient.Type)
+                            {
+                                slot.IncreaseCount();
+                                alreadyInSlot = true;
+                                break;
+                            }
+
+                        if (alreadyInSlot)
+                            LeanPool.Despawn(ingredient);
+                        else
+                            foreach (var slot in _slots)
+                                if (slot.IsEmpty)
+                                    slot.Set(ingredient);
                     });
 
                 _poof.Play();
-
             }
         }
 
-        public HashSet<IngredientRatio> CreateFertilizer()
+        private HashSet<IngredientRatio> CreateFertilizer()
         {
             var recipe = new HashSet<IngredientRatio>();
             foreach (var ingredient in _currentFertilizer)
@@ -68,8 +87,7 @@ namespace Main.Scripts.Craft
             return recipe;
         }
 
-        [Button]
-        public void CreateFlask()
+        private void CreateFlask()
         {
             if (_currentFlask == null)
             {
@@ -77,8 +95,9 @@ namespace Main.Scripts.Craft
                 _currentFlask.transform.position = FlaskSpawnPoint.position;
                 _currentFlask.OnFlaskDestroy += OnFlaskDestroy;
             }
+
             SoundController.Instance.PlayClip(SoundType.POOF);
-            _currentFlask.Setup(CreateFertilizer());
+            _currentFlask.Setup(CreateFertilizer(), _currentColor);
             Clear();
         }
 
@@ -88,15 +107,18 @@ namespace Main.Scripts.Craft
             _currentFlask = null;
         }
 
-        [Button]
-        public void Clear()=>
+        private void Clear()
+        {
             _currentFertilizer = new Dictionary<IngredientsType, int>();
-        
+            _water.materials[0].color = _defaultColor;
+            foreach (var slot in _slots)
+                slot.Reset();
+        }
 
         private void OnDrawGizmos()
         {
-            if(FlaskSpawnPoint==null) return;
-            Gizmos.color = Color.cyan;
+            if (FlaskSpawnPoint == null) return;
+            Gizmos.color = new Color(0,1,1,0.5f);
             Gizmos.DrawSphere(FlaskSpawnPoint.position, 0.2f);
         }
     }
