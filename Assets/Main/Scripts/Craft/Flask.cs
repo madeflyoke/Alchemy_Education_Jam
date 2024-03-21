@@ -15,7 +15,7 @@ namespace Main.Scripts.Craft
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
         [SerializeField] private float _minHeight;
-        [SerializeField] private MeshRenderer _water;
+        [SerializeField] private MeshRenderer _liquidMeshRenderer;
         private HashSet<IngredientRatio> _fertilizer = new HashSet<IngredientRatio>();
         private Vector3 _defaultPosition;
         public HashSet<IngredientRatio> GetFertilizer() => _fertilizer;
@@ -24,7 +24,7 @@ namespace Main.Scripts.Craft
         {
             _fertilizer = fertilizer;
             _defaultPosition = transform.position;
-            _water.materials[0].color = color;
+            _liquidMeshRenderer.materials[0].color = color;
         }
 
         public Type Type()

@@ -5037,7 +5037,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 8960858042536119471}
   _collider: {fileID: 4005437959246467741}
   _minHeight: 0.3
-  _water: {fileID: 8049189562800116149}
+  _liquidMeshRenderer: {fileID: 8049189562800116149}
 --- !u!54 &8960858042536119471
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5063,7 +5063,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &4005437959246467741
 BoxCollider:

@@ -16,22 +16,19 @@ namespace Main.Scripts.Craft
     public class Boiler : MonoBehaviour
     {
         [Inject] private InputHandler _inputHandler;
-        
-        [SerializeField] private ParticleSystem _ingredientDropEffect;
         [Header("Flask")]
         [SerializeField] private Transform FlaskSpawnPoint;
         [SerializeField] private Flask _flaskPrefab;
         [SerializeField] private ParticleSystem _ingredientDropEffect;
         [SerializeField] private List<BoilerSlot> _slots = new List<BoilerSlot>();
         [SerializeField] private Color _defaultColor;
-        [SerializeField] private MeshRenderer _water;
         private Color _currentColor;
         [Header("Liquid")] 
         [SerializeField] private MeshRenderer _liquidMeshRenderer;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
-        private void Start()=> _water.materials[0].color = _defaultColor;
+        private void Start()=> _liquidMeshRenderer.materials[0].color = _defaultColor;
 
         public void Enable() =>
             _inputHandler.SubscribeOnInputEvent(KeysEventType.CreatePotion, CreateFlask);
@@ -44,7 +41,7 @@ namespace Main.Scripts.Craft
             if (other.TryGetComponent(out BaseIngredient ingredient))
             {
                 _currentColor = Color.Lerp(_currentColor, ingredient.Color,0.5f);
-                _water.materials[0].color = _currentColor;
+                _liquidMeshRenderer.materials[0].color = _currentColor;
                 ingredient.Collider.enabled = false;
 
                 if (_currentFertilizer.ContainsKey(ingredient.Type))
@@ -128,7 +125,7 @@ namespace Main.Scripts.Craft
         private void Clear()
         {
             _currentFertilizer = new Dictionary<IngredientsType, int>();
-            _water.materials[0].color = _defaultColor;
+            _liquidMeshRenderer.materials[0].color = _defaultColor;
             foreach (var slot in _slots)
                 slot.Reset();
         }
