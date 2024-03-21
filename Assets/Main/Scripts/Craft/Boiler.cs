@@ -22,28 +22,18 @@ namespace Main.Scripts.Craft
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
-        public void Enable()
-        {
-            _inputHandler.OnKeyboardButtonClick += HandlePotionEvent;
-        }
+        public void Enable()=>
+            _inputHandler.SubscribeOnInputEvent(KeysEventType.CreatePotion,  CreateFlask);
 
-        public void Disable()
-        {
-            _inputHandler.OnKeyboardButtonClick -= HandlePotionEvent;
-        }
-
-        private void HandlePotionEvent(ButtonType type)
-        {
-            if (type == ButtonType.CreatePotion)
-                CreateFlask();
-        }
+        public void Disable() =>
+            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.CreatePotion,  CreateFlask);
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out BaseIngredient ingredient))
             {
                 ingredient.Collider.enabled = false;
-               // Debug.Log(ingredient.Type);
+
                 if (_currentFertilizer.ContainsKey(ingredient.Type))
                     _currentFertilizer[ingredient.Type] += 1;
                 else
@@ -57,16 +47,9 @@ namespace Main.Scripts.Craft
                         ingredient.transform.localScale = defaultScale;
                         LeanPool.Despawn(ingredient);
                     });
-                //TEST
-                // var str = new StringBuilder();
-                // foreach (var item in _currentFertilizer)
-                // {
-                //     str.Append(item + " ");
-                // }
 
                 _poof.Play();
 
-                // Debug.Log(str);
             }
         }
 
@@ -94,7 +77,7 @@ namespace Main.Scripts.Craft
                 _currentFlask.transform.position = FlaskSpawnPoint.position;
                 _currentFlask.OnFlaskDestroy += OnFlaskDestroy;
             }
-           SoundController.Instance.PlayClip(SoundType.POOF);
+            SoundController.Instance.PlayClip(SoundType.POOF);
             _currentFlask.Setup(CreateFertilizer());
             Clear();
         }

@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: New InputConfig
   m_EditorClassIdentifier: 
   MouseButtonPairs:
-  - Type: 0
-    Key: 323
+  - InteractionType: 0
+    EventType: 1
+    KeyType: 323
+  - InteractionType: 1
+    EventType: 0
+    KeyType: 323
   KeyboardButtonPairs:
-  - Type: 1
-    Key: 9
-  - Type: 2
-    Key: 32
-  MouseSensitivity: 2
+  - InteractionType: 1
+    EventType: 2
+    KeyType: 9
+  - InteractionType: 1
+    EventType: 3
+    KeyType: 32
+  MouseSensitivity: 2.5

@@ -1,3 +1,4 @@
+using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
 using Main.Scripts.Input;
 using Main.Scripts.Level;
@@ -16,6 +17,7 @@ namespace Main.Resources
         [Space]
         [Header("Services")]
         [SerializeField] private InputHandler _inputHandler;
+        [SerializeField] private SoundController _soundController;
         [Space]
         [Header("UI")]
         [SerializeField] private GameplayGuide _gameplayGuide;
@@ -39,6 +41,10 @@ namespace Main.Resources
         {
             Container.Bind<InputHandler>()
                 .FromInstance(_inputHandler)
+                .AsSingle()
+                .NonLazy();
+            Container.Bind<SoundController>()
+                .FromInstance(_soundController)
                 .AsSingle()
                 .NonLazy();
         }

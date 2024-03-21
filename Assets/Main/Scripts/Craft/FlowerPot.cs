@@ -52,7 +52,6 @@ namespace Main.Scripts.Craft
         {
             if(_failedParticles!=null)
                 _failedParticles.Play();
-            Debug.Log("FAIL");
             OnFlowerGrow?.Invoke(FlowerType.NONE);
         }
 

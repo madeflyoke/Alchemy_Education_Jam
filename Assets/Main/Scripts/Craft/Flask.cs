@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Main.Scripts.Craft
 {
-    public class Flask : MonoBehaviour, IDraggable
+    public class Flask : MonoBehaviour, IDraggable, IInteractable
     {
         public event Action OnFlaskDestroy;
         
@@ -24,6 +24,16 @@ namespace Main.Scripts.Craft
             _fertilizer = fertilizer;
             _defaultPosition = transform.position;
 
+        }
+
+        public Type Type()
+        {
+            return typeof(IDraggable);
+        }
+
+        public GameObject GetObject()
+        {
+            return this.gameObject;
         }
 
         public IDraggable GrabItem()
@@ -57,5 +67,7 @@ namespace Main.Scripts.Craft
             LeanPool.Despawn(this);
             OnFlaskDestroy?.Invoke();
         }
+
+       
     }
 }

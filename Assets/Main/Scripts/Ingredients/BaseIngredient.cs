@@ -68,6 +68,7 @@ namespace Main.Scripts.Ingredients
         public void DropItem()
         {
             IsDropped = true;
+            _rigidbody.velocity = Vector3.zero;
             _rigidbody.useGravity = true;
             _collider.enabled = true;
         }

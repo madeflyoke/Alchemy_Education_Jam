@@ -155,6 +155,7 @@ Transform:
   - {fileID: 8751959787579583648}
   - {fileID: 1841637109}
   - {fileID: 1092433560}
+  - {fileID: 2143402531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &472457551
@@ -300,7 +301,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 86949842}
     m_Modifications:
     - target: {fileID: 1479285314050794186, guid: e715bbe23e3ce0749b6c0cdad611abf4, type: 3}
       propertyPath: m_Name
@@ -324,15 +325,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2048735186145708477, guid: e715bbe23e3ce0749b6c0cdad611abf4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2048735186145708477, guid: e715bbe23e3ce0749b6c0cdad611abf4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2048735186145708477, guid: e715bbe23e3ce0749b6c0cdad611abf4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2048735186145708477, guid: e715bbe23e3ce0749b6c0cdad611abf4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -563,6 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e146a8f4a9d737d4892713c4007401dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxFps: 144
   _levelController: {fileID: 1092433561}
 --- !u!114 &1863013603 stripped
 MonoBehaviour:
@@ -632,6 +634,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbd81d9d8e64ba747b6df61570cf91df, type: 3}
+--- !u!114 &2143402530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4500820033896386447, guid: e715bbe23e3ce0749b6c0cdad611abf4, type: 3}
+  m_PrefabInstance: {fileID: 918297097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3b7b410192875419e43636d79d9726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2143402531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2048735186145708477, guid: e715bbe23e3ce0749b6c0cdad611abf4, type: 3}
+  m_PrefabInstance: {fileID: 918297097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1374068256171120423
 Transform:
   m_ObjectHideFlags: 0
@@ -766,6 +784,7 @@ MonoBehaviour:
   _inputConfig: {fileID: 11400000, guid: 096eba77e7c1b614aa61b4a51b396b25, type: 2}
   _flowersSetup: {fileID: 11400000, guid: 492c0668dfee25747b03a50c20162210, type: 2}
   _inputHandler: {fileID: 7421108237603486334}
+  _soundController: {fileID: 2143402530}
   _gameplayGuide: {fileID: 1554012029}
   _recipeHelper: {fileID: 1554012028}
 --- !u!114 &7255697459515503675 stripped
@@ -791,7 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2cdc087ae462741b92d296f1983082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enable: 0
 --- !u!4 &8751959787579583648
 Transform:
   m_ObjectHideFlags: 0
@@ -848,5 +866,4 @@ SceneRoots:
   - {fileID: 86949842}
   - {fileID: 2607649049785788119}
   - {fileID: 1554012026}
-  - {fileID: 918297097}
   - {fileID: 1879987091}
