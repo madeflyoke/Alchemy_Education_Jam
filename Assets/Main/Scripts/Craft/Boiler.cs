@@ -17,8 +17,8 @@ namespace Main.Scripts.Craft
     {
         [Inject] private InputHandler _inputHandler;
         [SerializeField] private Transform FlaskSpawnPoint;
-        [SerializeField] private Flask _prefab;
-        [SerializeField] private ParticleSystem _poof;
+        [SerializeField] private Flask _flaskPrefab;
+        [SerializeField] private ParticleSystem _ingredientDropEffect;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
@@ -48,8 +48,8 @@ namespace Main.Scripts.Craft
                         LeanPool.Despawn(ingredient);
                     });
 
-                _poof.Play();
-
+                _ingredientDropEffect.Play();
+                SoundController.Instance.PlayClip(SoundType.POOF);
             }
         }
 
@@ -73,7 +73,7 @@ namespace Main.Scripts.Craft
         {
             if (_currentFlask == null)
             {
-                _currentFlask = LeanPool.Spawn(_prefab);
+                _currentFlask = LeanPool.Spawn(_flaskPrefab);
                 _currentFlask.transform.position = FlaskSpawnPoint.position;
                 _currentFlask.OnFlaskDestroy += OnFlaskDestroy;
             }

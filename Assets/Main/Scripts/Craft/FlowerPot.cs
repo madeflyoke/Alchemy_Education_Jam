@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Lean.Pool;
+using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
 using UnityEngine;
 using Zenject;
@@ -42,6 +43,7 @@ namespace Main.Scripts.Craft
         private void CreateFlower(FlowerType flowerType)
         {
             _neutralParticles.Play();
+            SoundController.Instance.PlayClip(SoundType.POOF);
             _plant.SetActive(false);
             _flower = Instantiate(_flowers.Flowers.Find(f => f.Type == flowerType).Prefab);
             _flower.transform.position = _spawnPoint.position;
@@ -50,17 +52,23 @@ namespace Main.Scripts.Craft
 
         private void  PlayFailAnimation()
         {
-            if(_failedParticles!=null)
-                _failedParticles.Play();
+            _failedParticles.Play();
+            SoundController.Instance.PlayClip(SoundType.POOF);
             OnFlowerGrow?.Invoke(FlowerType.NONE);
         }
 
         public void ResetPot(bool good)
         {
-            if(good)
+            if (good)
+            {
                 _successParticles.Play();
-            if(!good)
+            }
+            else
+            {
                 _failedParticles.Play();
+            }
+            SoundController.Instance.PlayClip(SoundType.POOF);
+
             
             _plant.SetActive(true);
             if(_flower!=null)
