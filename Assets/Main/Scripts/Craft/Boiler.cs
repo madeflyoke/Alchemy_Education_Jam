@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using DG.Tweening;
 using EasyButtons;
 using Lean.Pool;
@@ -16,9 +14,13 @@ namespace Main.Scripts.Craft
     public class Boiler : MonoBehaviour
     {
         [Inject] private InputHandler _inputHandler;
+        
+        [SerializeField] private ParticleSystem _ingredientDropEffect;
+        [Header("Flask")]
         [SerializeField] private Transform FlaskSpawnPoint;
         [SerializeField] private Flask _flaskPrefab;
-        [SerializeField] private ParticleSystem _ingredientDropEffect;
+        [Header("Liquid")] 
+        [SerializeField] private MeshRenderer _liquidMeshRenderer;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
@@ -53,7 +55,7 @@ namespace Main.Scripts.Craft
             }
         }
 
-        public HashSet<IngredientRatio> CreateFertilizer()
+        private HashSet<IngredientRatio> CreateFertilizer()
         {
             var recipe = new HashSet<IngredientRatio>();
             foreach (var ingredient in _currentFertilizer)
@@ -69,7 +71,7 @@ namespace Main.Scripts.Craft
         }
 
         [Button]
-        public void CreateFlask()
+        private void CreateFlask()
         {
             if (_currentFlask == null)
             {
@@ -82,6 +84,12 @@ namespace Main.Scripts.Craft
             Clear();
         }
 
+        private void ChangeLiquidColor()
+        {
+            
+        }
+        
+        
         private void OnFlaskDestroy()
         {
             _currentFlask.OnFlaskDestroy -= OnFlaskDestroy;
@@ -89,7 +97,7 @@ namespace Main.Scripts.Craft
         }
 
         [Button]
-        public void Clear()=>
+        private void Clear()=>
             _currentFertilizer = new Dictionary<IngredientsType, int>();
         
 
