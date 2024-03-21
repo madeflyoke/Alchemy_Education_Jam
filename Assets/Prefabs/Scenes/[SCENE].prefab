@@ -463,8 +463,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.91862035, b: 0.2028302, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 0.5791501, b: 0.20392156, a: 1}
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4113,7 +4113,7 @@ GameObject:
   - component: {fileID: 6480277379728512649}
   - component: {fileID: 8289224565704095552}
   m_Layer: 0
-  m_Name: Point Light (3)
+  m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4146,8 +4146,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8, b: 0.38431373, a: 1}
-  m_Intensity: 5
-  m_Range: 10
+  m_Intensity: 4
+  m_Range: 13.05
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5347,7 +5347,7 @@ Transform:
   m_GameObject: {fileID: 1907831746700052815}
   serializedVersion: 2
   m_LocalRotation: {x: -0.50000006, y: 0.4999999, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.4897287, y: -0.033168323, z: -0.8592914}
+  m_LocalPosition: {x: -0.4897287, y: -0.033168323, z: -0.839}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5883,7 +5883,7 @@ GameObject:
   - component: {fileID: 3668140902593486338}
   - component: {fileID: 6869519107405334266}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5916,8 +5916,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8, b: 0.38431373, a: 1}
-  m_Intensity: 5
-  m_Range: 10
+  m_Intensity: 4
+  m_Range: 13.05
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -11158,7 +11158,7 @@ Transform:
   m_GameObject: {fileID: 4400984920517256833}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.8392371, y: -0.033168323, z: -0.6788549}
+  m_LocalPosition: {x: 0.81, y: -0.033168323, z: -0.6788549}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14430,7 +14430,7 @@ GameObject:
   - component: {fileID: 5292242722726018301}
   - component: {fileID: 3741158380059484456}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14463,8 +14463,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8, b: 0.38431373, a: 1}
-  m_Intensity: 5
-  m_Range: 10
+  m_Intensity: 4
+  m_Range: 13.05
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -15984,7 +15984,7 @@ GameObject:
   - component: {fileID: 8834381960302889910}
   - component: {fileID: 4848483103936843839}
   m_Layer: 0
-  m_Name: Point Light (2)
+  m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16017,8 +16017,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8, b: 0.38431373, a: 1}
-  m_Intensity: 5
-  m_Range: 10
+  m_Intensity: 4
+  m_Range: 13.05
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -16876,7 +16876,7 @@ GameObject:
   - component: {fileID: 2887740112432261016}
   - component: {fileID: 4904230183489757710}
   m_Layer: 0
-  m_Name: Point Light (5)
+  m_Name: CandleLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16891,7 +16891,7 @@ Transform:
   m_GameObject: {fileID: 7201441065142478824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.528, y: 2.431, z: 1.804}
+  m_LocalPosition: {x: 1.521, y: 2.392, z: 1.812}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16908,9 +16908,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8, b: 0.38431373, a: 1}
-  m_Intensity: 2
-  m_Range: 10
+  m_Color: {r: 0.990566, g: 0.63830084, b: 0.1728818, a: 1}
+  m_Intensity: 1.5
+  m_Range: 3.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -20411,7 +20411,7 @@ GameObject:
   - component: {fileID: 5782132407261096489}
   - component: {fileID: 2570500469342340533}
   m_Layer: 0
-  m_Name: Point Light (6)
+  m_Name: CandleLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20426,7 +20426,7 @@ Transform:
   m_GameObject: {fileID: 8712855144364115369}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.779, y: 2.469, z: -3.185}
+  m_LocalPosition: {x: 7.819, y: 2.364, z: -3.159}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20443,9 +20443,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8, b: 0.38431373, a: 1}
-  m_Intensity: 2
-  m_Range: 10
+  m_Color: {r: 0.990566, g: 0.63830084, b: 0.1728818, a: 1}
+  m_Intensity: 1.5
+  m_Range: 3.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -21027,7 +21027,7 @@ GameObject:
   - component: {fileID: 3436083891689067201}
   - component: {fileID: 7408330685487755827}
   m_Layer: 0
-  m_Name: Point Light (4)
+  m_Name: CandleLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21042,7 +21042,7 @@ Transform:
   m_GameObject: {fileID: 8951545715168955616}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.91, y: 2.431, z: 0.934}
+  m_LocalPosition: {x: 6.91, y: 2.391, z: 0.934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21059,9 +21059,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8, b: 0.38431373, a: 1}
-  m_Intensity: 2
-  m_Range: 10
+  m_Color: {r: 0.990566, g: 0.63830084, b: 0.1728818, a: 1}
+  m_Intensity: 1.5
+  m_Range: 3.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
