@@ -182,7 +182,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 4964675160665111164}
   _collider: {fileID: 7244381980820409452}
   _orbEffect: {fileID: 1925771155232809563}
-  Type_TEST: 8
+  _color: {r: 1, g: 0.42864963, b: 0, a: 1}
+  Type: 8
 --- !u!1001 &5787893993165766045
 PrefabInstance:
   m_ObjectHideFlags: 0

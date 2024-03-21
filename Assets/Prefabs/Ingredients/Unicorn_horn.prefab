@@ -161,7 +161,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 1798251377502937772}
   _collider: {fileID: 7899558080892541734}
   _orbEffect: {fileID: 4981189996869836095}
-  Type_TEST: 7
+  _color: {r: 0.5529412, g: 1, b: 1, a: 1}
+  Type: 7
 --- !u!136 &7899558080892541734
 CapsuleCollider:
   m_ObjectHideFlags: 0

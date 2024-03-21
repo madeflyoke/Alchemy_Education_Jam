@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using DG.Tweening;
-using EasyButtons;
 using Lean.Pool;
 using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
@@ -67,7 +64,11 @@ namespace Main.Scripts.Craft
                         else
                             foreach (var slot in _slots)
                                 if (slot.IsEmpty)
+                                {
                                     slot.Set(ingredient);
+                                    break;
+                                }
+                                   
                     });
 
                 _ingredientDropEffect.Play();

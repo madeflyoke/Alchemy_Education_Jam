@@ -183,7 +183,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 3258746909599499887}
   _collider: {fileID: 3102089432167418503}
   _orbEffect: {fileID: 5860046476851253707}
-  Type_TEST: 5
+  _color: {r: 0.5519495, g: 0, b: 1, a: 1}
+  Type: 5
 --- !u!1 &5353508396677622376
 GameObject:
   m_ObjectHideFlags: 0
