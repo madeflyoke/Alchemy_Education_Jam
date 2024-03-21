@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8042125867628455465}
   - component: {fileID: 4719559233028266828}
   - component: {fileID: 5208491713409169552}
-  - component: {fileID: 6698837434160519711}
   - component: {fileID: 8586023543384821259}
   m_Layer: 0
   m_Name: CloudPoof
@@ -4903,20 +4902,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &6698837434160519711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912804578974727680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4d0463e14e0124da1eb35afcdb729f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _source: {fileID: 8586023543384821259}
-  _particle: {fileID: 4719559233028266828}
 --- !u!82 &8586023543384821259
 AudioSource:
   m_ObjectHideFlags: 0

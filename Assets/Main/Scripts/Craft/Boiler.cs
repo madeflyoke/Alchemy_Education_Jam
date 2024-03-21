@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
 using DG.Tweening;
+using EasyButtons;
 using Lean.Pool;
 using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
@@ -14,8 +17,8 @@ namespace Main.Scripts.Craft
     {
         [Inject] private InputHandler _inputHandler;
         [SerializeField] private Transform FlaskSpawnPoint;
-        [SerializeField] private Flask _prefab;
-        [SerializeField] private ParticleSystem _poof;
+        [SerializeField] private Flask _flaskPrefab;
+        [SerializeField] private ParticleSystem _ingredientDropEffect;
         [SerializeField] private List<BoilerSlot> _slots = new List<BoilerSlot>();
         [SerializeField] private Color _defaultColor;
         [SerializeField] private MeshRenderer _water;
@@ -29,7 +32,7 @@ namespace Main.Scripts.Craft
             _inputHandler.SubscribeOnInputEvent(KeysEventType.CreatePotion, CreateFlask);
 
         public void Disable() =>
-            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.CreatePotion, CreateFlask);
+            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.CreatePotion,  CreateFlask);
 
         private void OnTriggerEnter(Collider other)
         {
@@ -50,7 +53,6 @@ namespace Main.Scripts.Craft
                     {
                         ingredient.gameObject.SetActive(false);
                         ingredient.transform.localScale = defaultScale;
-
                         bool alreadyInSlot = false;
                         foreach (var slot in _slots)
                             if (slot.Type == ingredient.Type)
@@ -68,7 +70,8 @@ namespace Main.Scripts.Craft
                                     slot.Set(ingredient);
                     });
 
-                _poof.Play();
+                _ingredientDropEffect.Play();
+                SoundController.Instance.PlayClip(SoundType.POOF);
             }
         }
 
@@ -91,7 +94,7 @@ namespace Main.Scripts.Craft
         {
             if (_currentFlask == null)
             {
-                _currentFlask = LeanPool.Spawn(_prefab);
+                _currentFlask = LeanPool.Spawn(_flaskPrefab);
                 _currentFlask.transform.position = FlaskSpawnPoint.position;
                 _currentFlask.OnFlaskDestroy += OnFlaskDestroy;
             }
