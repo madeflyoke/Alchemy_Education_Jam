@@ -1,5 +1,3 @@
-using System;
-using Main.Scripts.Audio;
 using Main.Scripts.Input;
 using UnityEngine;
 using Zenject;
@@ -13,7 +11,6 @@ namespace Main.Scripts.Hand
         private HandMovementLimiter _movementLimiter;
         private Vector3 _currentPos => transform.position;
         private float _speed = 1.5f;
-        private bool _isPressed = false;
         public bool enable = false;
         
 
@@ -48,6 +45,5 @@ namespace Main.Scripts.Hand
         private void PeekItem() => _itemHandler.TryGrabItem();
 
         private void DropItem()=> _itemHandler.TryDropItem();
-        
     }
 }
