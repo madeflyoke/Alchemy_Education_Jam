@@ -2,14 +2,15 @@ using System;
 using DG.Tweening;
 using Lean.Pool;
 using Main.Scripts.Ingredients;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Main.Scripts.Craft
 {
     public class BoilerSlot : MonoBehaviour
     {
         [SerializeField] private float _scale;
-
         private BaseIngredient _ingredient;
         public IngredientsType Type { get; private set; }
         private Vector3 _defaultIngredientScale;
@@ -18,7 +19,7 @@ namespace Main.Scripts.Craft
 
         private void Start() => IsEmpty = true;
 
-        public void IncreaseCount() => Count++;
+        public void IncreaseCount()=>Count++;
 
         public void Set(BaseIngredient ingredient)
         {

@@ -27,15 +27,9 @@ namespace Main.Scripts.Craft
             _liquidMeshRenderer.materials[0].color = color;
         }
 
-        public Type Type()
-        {
-            return typeof(IDraggable);
-        }
+        public Type Type()=> typeof(IDraggable);
 
-        public GameObject GetObject()
-        {
-            return this.gameObject;
-        }
+        public GameObject GetObject()=>this.gameObject;
 
         public IDraggable GrabItem()
         {
@@ -68,7 +62,5 @@ namespace Main.Scripts.Craft
             LeanPool.Despawn(this);
             OnFlaskDestroy?.Invoke();
         }
-
-       
     }
 }
