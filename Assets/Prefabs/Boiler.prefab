@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 3732590945380647440}
   - component: {fileID: 4855002137414680637}
   - component: {fileID: 3669568211812702077}
+  - component: {fileID: 1197874198645730590}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -249,6 +250,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &1197874198645730590
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7553493919920861355}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.013750979
+  m_Center: {x: -0.000004908244, y: 0.0000016498565, z: -0.009752919}
 --- !u!1 &8017224692629630050
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,9 +514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f506c087c77784c8c81869bc478863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ingredientDropEffect: {fileID: 3780042626283914289}
   FlaskSpawnPoint: {fileID: 0}
   _flaskPrefab: {fileID: 2004695350162817990, guid: fdd38c6acc1431d4b9accd6d2dbe5ce5, type: 3}
-  _ingredientDropEffect: {fileID: 3780042626283914289}
+  _liquidMeshRenderer: {fileID: 0}
 --- !u!135 &2146019076704482616
 SphereCollider:
   m_ObjectHideFlags: 0
