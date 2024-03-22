@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53f81b16709c93c4b8482fc93ea709ce, type: 3}
-  m_Name: New Recipes Setup
+  m_Name: Recipes Setup
   m_EditorClassIdentifier: 
   _recipes:
   - FlowerType: 1

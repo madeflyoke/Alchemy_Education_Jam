@@ -5,11 +5,15 @@ namespace Main.Scripts
 {
     public interface IInteractable
     {
-        public Type Type()
-        {
-            return null;
-        }
+        public InteractableTypeP Type();
 
         public GameObject GetObject();
+    }
+
+    public enum InteractableTypeP
+    {
+        MovableObject,
+        ItemSpawner
+        
     }
 }

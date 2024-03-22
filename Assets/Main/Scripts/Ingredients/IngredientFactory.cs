@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Main.Scripts.Ingredients
 {
-    public  static class IngredientFactory 
+    public static class IngredientFactory
     {
         public static BaseIngredient CreateIngredient(BaseIngredient prefab, IngredientsType type)
         {
@@ -11,7 +11,7 @@ namespace Main.Scripts.Ingredients
             clone.DisableOrbEffectCostyl();
             clone.Collider.enabled = false;
             clone.Rigidbody.useGravity = false;
-            clone.Type = type;
+            clone.SetupIngredientType(type);
             return clone;
         }
     }

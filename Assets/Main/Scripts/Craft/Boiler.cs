@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using DG.Tweening;
-using EasyButtons;
 using Lean.Pool;
 using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
@@ -16,69 +13,80 @@ namespace Main.Scripts.Craft
     public class Boiler : MonoBehaviour
     {
         [Inject] private InputHandler _inputHandler;
-        [Header("Flask")]
-        [SerializeField] private Transform FlaskSpawnPoint;
+        [Header("Flask")] [SerializeField] private Transform FlaskSpawnPoint;
         [SerializeField] private Flask _flaskPrefab;
         [SerializeField] private ParticleSystem _ingredientDropEffect;
         [SerializeField] private List<BoilerSlot> _slots = new List<BoilerSlot>();
         [SerializeField] private Color _defaultColor;
         private Color _currentColor;
-        [Header("Liquid")] 
-        [SerializeField] private MeshRenderer _liquidMeshRenderer;
+        [Header("Liquid")] [SerializeField] private MeshRenderer _liquidMeshRenderer;
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
-        private void Start()=> _liquidMeshRenderer.materials[0].color = _defaultColor;
+        private void Start() => _liquidMeshRenderer.materials[0].color = _defaultColor;
 
         public void Enable() =>
             _inputHandler.SubscribeOnInputEvent(KeysEventType.CreatePotion, CreateFlask);
 
         public void Disable() =>
-            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.CreatePotion,  CreateFlask);
+            _inputHandler.UnsubscribeFromInputEvent(KeysEventType.CreatePotion, CreateFlask);
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out BaseIngredient ingredient))
             {
-                _currentColor = Color.Lerp(_currentColor, ingredient.Color,0.5f);
-                _liquidMeshRenderer.materials[0].color = _currentColor;
+                UpdateLiquidColor(ingredient.Color);
+                UpdateFertilizerContent(ingredient.Type);
+
                 ingredient.Collider.enabled = false;
-
-                if (_currentFertilizer.ContainsKey(ingredient.Type))
-                    _currentFertilizer[ingredient.Type] += 1;
-                else
-                    _currentFertilizer.Add(ingredient.Type, 1);
-
                 var defaultScale = ingredient.transform.localScale;
                 ingredient.transform.DOScale(Vector3.zero, 0.2f)
                     .OnComplete(() =>
                     {
                         ingredient.gameObject.SetActive(false);
                         ingredient.transform.localScale = defaultScale;
-                        bool alreadyInSlot = false;
-                        foreach (var slot in _slots)
-                            if (slot.Type == ingredient.Type)
-                            {
-                                slot.IncreaseCount();
-                                alreadyInSlot = true;
-                                break;
-                            }
-
-                        if (alreadyInSlot)
-                            LeanPool.Despawn(ingredient);
-                        else
-                            foreach (var slot in _slots)
-                                if (slot.IsEmpty)
-                                {
-                                    slot.Set(ingredient);
-                                    break;
-                                }
-                                   
+                        TrySetOnSlot(ingredient);
                     });
 
                 _ingredientDropEffect.Play();
                 SoundController.Instance.PlayClip(SoundType.POOF);
             }
+        }
+
+        private void UpdateLiquidColor(Color color)
+        {
+            _currentColor = Color.Lerp(_currentColor, color, 0.5f);
+            _liquidMeshRenderer.materials[0].color = _currentColor;
+        }
+
+        private void UpdateFertilizerContent(IngredientsType type)
+        {
+            if (_currentFertilizer.ContainsKey(type))
+                _currentFertilizer[type] += 1;
+            else
+                _currentFertilizer.Add(type, 1);
+        }
+
+        private void TrySetOnSlot(BaseIngredient item)
+        {
+            bool alreadyInSlot = false;
+            foreach (var slot in _slots)
+                if (slot.Type == item.Type)
+                {
+                    slot.IncreaseCount();
+                    alreadyInSlot = true;
+                    break;
+                }
+
+            if (alreadyInSlot)
+                LeanPool.Despawn(item);
+            else
+                foreach (var slot in _slots)
+                    if (slot.IsEmpty)
+                    {
+                        slot.Set(item);
+                        break;
+                    }
         }
 
         private HashSet<IngredientRatio> CreateFertilizer()
@@ -95,7 +103,7 @@ namespace Main.Scripts.Craft
 
             return recipe;
         }
-        
+
         private void CreateFlask()
         {
             if (_currentFlask == null)
@@ -109,7 +117,7 @@ namespace Main.Scripts.Craft
             _currentFlask.Setup(CreateFertilizer(), _currentColor);
             Clear();
         }
-        
+
         private void OnFlaskDestroy()
         {
             _currentFlask.OnFlaskDestroy -= OnFlaskDestroy;
@@ -127,7 +135,7 @@ namespace Main.Scripts.Craft
         private void OnDrawGizmos()
         {
             if (FlaskSpawnPoint == null) return;
-            Gizmos.color = new Color(0,1,1,0.5f);
+            Gizmos.color = new Color(0, 1, 1, 0.5f);
             Gizmos.DrawSphere(FlaskSpawnPoint.position, 0.2f);
         }
     }

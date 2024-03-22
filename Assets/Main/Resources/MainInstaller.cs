@@ -1,7 +1,7 @@
 using Main.Scripts.Audio;
 using Main.Scripts.Flowers;
+using Main.Scripts.Ingredients;
 using Main.Scripts.Input;
-using Main.Scripts.Level;
 using Main.Scripts.UI;
 using UnityEngine;
 using Zenject;
@@ -14,6 +14,7 @@ namespace Main.Resources
         [SerializeField] private FlowerRecipeSetup _flowerRecipeSetup;
         [SerializeField] private InputConfig _inputConfig;
         [SerializeField] private FlowersSetup _flowersSetup;
+        [SerializeField] private IngredientsSetup _ingredients;
         [Space]
         [Header("Services")]
         [SerializeField] private InputHandler _inputHandler;
@@ -34,7 +35,9 @@ namespace Main.Resources
         {
             Container.Bind<FlowerRecipeSetup>().FromInstance(_flowerRecipeSetup).AsSingle().NonLazy();
             Container.Bind<FlowersSetup>().FromInstance(_flowersSetup).AsSingle().NonLazy();
+            Container.Bind<IngredientsSetup>().FromInstance(_ingredients).AsSingle().NonLazy();
             Container.Bind<InputConfig>().FromInstance(_inputConfig).AsSingle().NonLazy();
+           
         }
 
         private void BindServices()
