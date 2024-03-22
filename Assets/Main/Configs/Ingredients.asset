@@ -15,13 +15,19 @@ MonoBehaviour:
   Ingredients:
   - Type: 3
     Ingredient: {fileID: 1534522107684337443, guid: cdcc0318e79e2974eb592003893f68cb, type: 3}
+    RelatedColor: {r: 0.7921569, g: 0, b: 0, a: 1}
   - Type: 4
     Ingredient: {fileID: 7025617073948612769, guid: e78d50602e9b48945bfc9dbe182e0b85, type: 3}
+    RelatedColor: {r: 0, g: 0, b: 0, a: 1}
   - Type: 5
     Ingredient: {fileID: 9022660478165927256, guid: f3bbba62e4428a648ad89f0eb61a83b6, type: 3}
+    RelatedColor: {r: 0.7490196, g: 0.2784314, b: 0.83137256, a: 1}
   - Type: 6
     Ingredient: {fileID: 6659408975500168638, guid: 2bf3fc0fb4a89094fb9cde13de33864e, type: 3}
+    RelatedColor: {r: 0.90588236, g: 0.7607843, b: 0.21568628, a: 1}
   - Type: 7
     Ingredient: {fileID: 4621537655869510527, guid: e5955f88236a21f40a1bf4547dbc417f, type: 3}
+    RelatedColor: {r: 1, g: 1, b: 1, a: 1}
   - Type: 8
     Ingredient: {fileID: 6762053354521831948, guid: 0c989f51003e25648a5d41ec3f86c246, type: 3}
+    RelatedColor: {r: 0.14901961, g: 0.81960785, b: 0.2, a: 1}

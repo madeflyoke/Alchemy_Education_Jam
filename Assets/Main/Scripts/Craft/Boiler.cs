@@ -38,7 +38,7 @@ namespace Main.Scripts.Craft
                 UpdateLiquidColor(ingredient.Color);
                 UpdateFertilizerContent(ingredient.Type);
 
-                ingredient.Collider.enabled = false;
+                ingredient.SetColliderActive(false);
                 var defaultScale = ingredient.transform.localScale;
                 ingredient.transform.DOScale(Vector3.zero, 0.2f)
                     .OnComplete(() =>

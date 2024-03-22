@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59bcf229ba04a94d89f05ed62df5dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemHandler: {fileID: 4422052148415426865}
+  handInteractionHandler: {fileID: 4422052148415426865}
   enable: 0
 --- !u!1 &7968926977488118985
 GameObject:
@@ -170,7 +170,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 514967463342204721, guid: 0f31b219f22cd304988dbbf6ebf57029, type: 3}
       propertyPath: _includeLayers.m_Bits
-      value: 16401
+      value: 24593
       objectReference: {fileID: 0}
     - target: {fileID: 5533356862523026157, guid: 0f31b219f22cd304988dbbf6ebf57029, type: 3}
       propertyPath: m_Name

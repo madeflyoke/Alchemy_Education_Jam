@@ -6,39 +6,48 @@ namespace Main.Scripts.Ingredients
     {
         public bool IsDropped { get; private set; }
         public IngredientsType Type { get; private set; }
-        public Rigidbody Rigidbody => _rigidbody;
-        public Collider Collider => _collider;
-        public Color Color => _ingredientVisual.RelatedColor;
+        public Color Color { get; private set; }
+        public Transform VisualPart => _visualPart;
 
+        [SerializeField] private Transform _visualPart;
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
-        [SerializeField] private IngredientVisual _ingredientVisual;
 
-        public void DisableOrbEffectCostyl() => _ingredientVisual.DisableOrbEffect();
-
-        public void SetupIngredientType(IngredientsType type)
+        public void Initialize(IngredientsType type, Color relatedColor)
         {
+            SetPhysicsActive(false);
+
             if (type != IngredientsType.DEFAULT)
                 Type = type;
+            
+            Color = relatedColor;
         }
 
         public IMovable Peak()
         {
             if (IsDropped) return null;
-            _collider.enabled = false;
-            _rigidbody.useGravity = false;
-            _rigidbody.velocity = Vector3.zero;
+            SetPhysicsActive(false);
             return this;
         }
 
+        public void SetPhysicsActive(bool isActive)
+        {
+            _rigidbody.velocity = Vector3.zero;
+            SetColliderActive(isActive);
+            _rigidbody.useGravity = isActive;
+        }
+
+        public void SetColliderActive(bool isActive)
+        {
+            _collider.enabled = isActive;
+        }
+        
         public void Move(Vector3 position) => transform.position = position;
 
         public void Release()
         {
             IsDropped = true;
-            _rigidbody.velocity = Vector3.zero;
-            _rigidbody.useGravity = true;
-            _collider.enabled = true;
+            SetPhysicsActive(true);
         }
     }
 }

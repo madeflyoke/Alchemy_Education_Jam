@@ -34,9 +34,8 @@ namespace Main.Scripts.Craft
         private void SetupIngredient(BaseIngredient ingredient)
         {
             _ingredient = ingredient;
-            _ingredient.Collider.enabled = false;
-            _ingredient.Rigidbody.useGravity = false;
-            _ingredient.Rigidbody.velocity = Vector3.zero;
+            _ingredient.SetPhysicsActive(false);
+   
             _defaultIngredientScale = _ingredient.transform.localScale;
             _ingredient.transform.localScale = _defaultIngredientScale * _scale;
             _ingredient.transform.SetParent(transform);

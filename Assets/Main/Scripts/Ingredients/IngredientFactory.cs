@@ -5,13 +5,10 @@ namespace Main.Scripts.Ingredients
 {
     public static class IngredientFactory
     {
-        public static BaseIngredient CreateIngredient(BaseIngredient prefab, IngredientsType type)
+        public static BaseIngredient CreateIngredient(IngredientData data)
         {
-            var clone = LeanPool.Spawn(prefab);
-            clone.DisableOrbEffectCostyl();
-            clone.Collider.enabled = false;
-            clone.Rigidbody.useGravity = false;
-            clone.SetupIngredientType(type);
+            var clone = LeanPool.Spawn(data.Ingredient);
+            clone.Initialize(data.Type, data.RelatedColor);
             return clone;
         }
     }

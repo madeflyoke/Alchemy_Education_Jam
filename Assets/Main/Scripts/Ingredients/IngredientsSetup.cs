@@ -15,5 +15,6 @@ namespace Main.Scripts.Ingredients
     {
         public IngredientsType Type;
         public BaseIngredient Ingredient;
+        public Color RelatedColor;
     }
 }
