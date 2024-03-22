@@ -6,7 +6,7 @@ namespace Main.Scripts.Hand
 {
     public class Hand : MonoBehaviour
     {
-        [SerializeField] private ItemHandler _itemHandler; 
+        [SerializeField] private HandInteractionHandler handInteractionHandler; 
         [Inject] private InputHandler _inputHandler;
         private HandMovementLimiter _movementLimiter;
         private Vector3 _currentPos => transform.position;
@@ -42,8 +42,8 @@ namespace Main.Scripts.Hand
             transform.position += new Vector3(nextPos.x,0,nextPos.y);
         }
 
-        private void PeekItem() => _itemHandler.TryGrabItem();
+        private void PeekItem() => handInteractionHandler.TryInteract();
 
-        private void DropItem()=> _itemHandler.TryDropItem();
+        private void DropItem()=> handInteractionHandler.Release();
     }
 }

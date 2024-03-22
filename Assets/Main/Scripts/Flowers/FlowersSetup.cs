@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Main.Scripts.Craft;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
 
 namespace Main.Scripts.Flowers
 {
@@ -12,9 +10,15 @@ namespace Main.Scripts.Flowers
     {
         public List<FlowerData> Flowers = new List<FlowerData>();
 
-        public FlowerData GetRandomFlower()
+        public FlowerData GetRandomFlower(FlowerType prewType = FlowerType.NONE)
         {
             var index = Random.Range(0, Flowers.Count);
+            if (prewType == FlowerType.NONE || Flowers[index].Type != prewType) return Flowers[index];
+
+            if (index == Flowers.Count - 1)
+                index--;
+            else
+                index++;
             return Flowers[index];
         }
     }

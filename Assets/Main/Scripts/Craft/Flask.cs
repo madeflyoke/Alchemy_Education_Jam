@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using Lean.Pool;
 using Main.Scripts.Flowers;
+using Main.Scripts.Ingredients;
 using UnityEngine;
 
 namespace Main.Scripts.Craft
 {
-    public class Flask : MonoBehaviour, IDraggable, IInteractable
+    public class Flask : MonoBehaviour, IMovable, IInteractable
     {
         public event Action OnFlaskDestroy;
         
@@ -16,6 +17,7 @@ namespace Main.Scripts.Craft
         [SerializeField] private Collider _collider;
         [SerializeField] private float _minHeight;
         [SerializeField] private MeshRenderer _liquidMeshRenderer;
+        [SerializeField] private InteractableTypeP _type;
         private HashSet<IngredientRatio> _fertilizer = new HashSet<IngredientRatio>();
         private Vector3 _defaultPosition;
         public HashSet<IngredientRatio> GetFertilizer() => _fertilizer;
@@ -26,12 +28,11 @@ namespace Main.Scripts.Craft
             _defaultPosition = transform.position;
             _liquidMeshRenderer.materials[0].color = color;
         }
-
-        public Type Type()=> typeof(IDraggable);
-
+        
+        public InteractableTypeP Type()=> _type;
         public GameObject GetObject()=>this.gameObject;
 
-        public IDraggable GrabItem()
+        public IMovable Peak()
         {
             if (this == null) return null;
             _rigidbody.useGravity = false;
@@ -50,9 +51,9 @@ namespace Main.Scripts.Craft
                 transform.position = _defaultPosition;
         }
 
-        public void DropItem()
+        public void Release()
         {
-            IsDropped = true;
+             IsDropped = true;
             _collider.enabled = true;
             _rigidbody.useGravity = true;
         }
