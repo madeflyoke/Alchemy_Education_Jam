@@ -40,6 +40,7 @@ namespace Main.Scripts.Hand
 
         private void PeakItem(IMovable item)
         {
+            if (item.IsDropped) return;
             _ray.SetActive(false);
             _triggerZone.enabled = false;
             _movableItem = item.Peak();

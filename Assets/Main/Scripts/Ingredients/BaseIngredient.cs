@@ -1,10 +1,11 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Main.Scripts.Ingredients
 {
     public class BaseIngredient : MonoBehaviour, IMovable
     {
-        public bool IsDropped { get; private set; }
+        public bool IsDropped { get; set; }
         public IngredientsType Type { get; private set; }
         public Color Color { get; private set; }
         public Transform VisualPart => _visualPart;
@@ -27,6 +28,8 @@ namespace Main.Scripts.Ingredients
         {
             if (IsDropped) return null;
             SetPhysicsActive(false);
+            transform.DOKill(false);
+            gameObject.SetActive(true);
             return this;
         }
 

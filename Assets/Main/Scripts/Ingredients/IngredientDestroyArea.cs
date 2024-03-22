@@ -12,6 +12,7 @@ namespace Main.Scripts.Ingredients
             {
                 if (ingredient.IsDropped)
                 {
+                    ingredient.IsDropped = false;
                     LeanPool.Despawn(ingredient);
                 }
             }

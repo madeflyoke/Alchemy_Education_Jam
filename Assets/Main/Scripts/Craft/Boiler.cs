@@ -23,7 +23,11 @@ namespace Main.Scripts.Craft
         private Dictionary<IngredientsType, int> _currentFertilizer = new Dictionary<IngredientsType, int>();
         private Flask _currentFlask;
 
-        private void Start() => _liquidMeshRenderer.materials[0].color = _defaultColor;
+        private void Start()
+        {
+            _liquidMeshRenderer.materials[0].color = _defaultColor;
+            _currentColor = _defaultColor;
+        }
 
         public void Enable() =>
             _inputHandler.SubscribeOnInputEvent(KeysEventType.CreatePotion, CreateFlask);
@@ -55,7 +59,8 @@ namespace Main.Scripts.Craft
 
         private void UpdateLiquidColor(Color color)
         {
-            _currentColor = Color.Lerp(_currentColor, color, 0.5f);
+            _currentColor = Color.Lerp(_currentColor, color, 0.25f);
+            //Debug.Log(_currentColor);
             _liquidMeshRenderer.materials[0].color = _currentColor;
         }
 

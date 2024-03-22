@@ -11,7 +11,7 @@ namespace Main.Scripts.Craft
     {
         public event Action OnFlaskDestroy;
         
-        public bool IsDropped { get; private set; }
+        public bool IsDropped { get;  set; }
 
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Collider _collider;
