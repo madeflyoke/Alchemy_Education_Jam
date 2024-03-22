@@ -787,6 +787,7 @@ MonoBehaviour:
   _flowerRecipeSetup: {fileID: 11400000, guid: 3f48ccc96ab96ef4bab7088902411134, type: 2}
   _inputConfig: {fileID: 11400000, guid: 096eba77e7c1b614aa61b4a51b396b25, type: 2}
   _flowersSetup: {fileID: 11400000, guid: 492c0668dfee25747b03a50c20162210, type: 2}
+  _ingredients: {fileID: 0}
   _inputHandler: {fileID: 7421108237603486334}
   _soundController: {fileID: 2143402530}
   _gameplayGuide: {fileID: 1554012029}
