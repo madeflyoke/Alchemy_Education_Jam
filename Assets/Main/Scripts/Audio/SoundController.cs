@@ -10,6 +10,7 @@ namespace Main.Scripts.Audio
     public class SoundController : MonoBehaviour
     {
         public static SoundController Instance { get; private set; }
+        public float SoundsVolume => _soundsVolume;
         
         [SerializeField] private AudioSource _audioSourcePrefab;
         [SerializeField, Range(0.01f,1f)] private float _soundsVolume;

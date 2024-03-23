@@ -1596,7 +1596,7 @@ GameObject:
   - component: {fileID: 8413923433832665619}
   - component: {fileID: 8931297444615542644}
   m_Layer: 0
-  m_Name: Character
+  m_Name: DemonGirlChar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

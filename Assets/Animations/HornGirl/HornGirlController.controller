@@ -245,7 +245,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Angry
     m_StateMachine: {fileID: -3505592382192385314}
-    m_Mask: {fileID: 31900000, guid: b8615cf8c05bac54a8ae9f5b2a1fb302, type: 2}
+    m_Mask: {fileID: 31900000, guid: a6c33e84c7d2f7840b2adf727e133788, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -414,7 +414,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.4
   m_TransitionOffset: 0
   m_ExitTime: 1
   m_HasExitTime: 1
