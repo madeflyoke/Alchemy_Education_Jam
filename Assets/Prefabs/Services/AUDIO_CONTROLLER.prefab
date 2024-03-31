@@ -54,14 +54,14 @@ MonoBehaviour:
   - SoundType: 1
     Clip: {fileID: 8300000, guid: ea585a7758a3e48c89e2321f9564391f, type: 3}
   - SoundType: 2
-    Clip: {fileID: 8300000, guid: 1974292146f6d794eb9b26d9b6b56ff5, type: 3}
+    Clip: {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}
   - SoundType: 3
-    Clip: {fileID: 8300000, guid: a0d85d484df87ea49947b31092a74752, type: 3}
-  - SoundType: 4
+    Clip: {fileID: 8300000, guid: 5fe4bc0609c03e24097e0cb3666a4fb5, type: 3}
+  - SoundType: 10
     Clip: {fileID: 8300000, guid: 41fe4d9ba3ef6724ca43b1fe9c39ddea, type: 3}
-  - SoundType: 5
+  - SoundType: 11
     Clip: {fileID: 8300000, guid: 6c60258c91fb7bf46926751225a4c3a2, type: 3}
-  - SoundType: 6
+  - SoundType: 12
     Clip: {fileID: 8300000, guid: 6df6bd99cac3fbb45b87971b1f8d910b, type: 3}
   _mainMusic: {fileID: 7320005697209274458}
 --- !u!82 &7320005697209274458
