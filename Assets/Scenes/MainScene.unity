@@ -792,37 +792,6 @@ MonoBehaviour:
   _soundController: {fileID: 2143402530}
   _gameplayGuide: {fileID: 1554012029}
   _recipeHelper: {fileID: 1554012028}
---- !u!1 &6215735607432635765
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6704006304110002127}
-  m_Layer: 0
-  m_Name: table with things
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6704006304110002127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6215735607432635765}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071069}
-  m_LocalPosition: {x: -0.8, y: -1.0974, z: 2.17}
-  m_LocalScale: {x: 0.47072205, y: 0.47072205, z: 0.47072205}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &7255697459515503675 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8769529203311830813, guid: 4d2aad03963d5774087c8aaf46ac7c13, type: 3}
@@ -903,4 +872,3 @@ SceneRoots:
   - {fileID: 2607649049785788119}
   - {fileID: 1554012026}
   - {fileID: 1879987091}
-  - {fileID: 6704006304110002127}
