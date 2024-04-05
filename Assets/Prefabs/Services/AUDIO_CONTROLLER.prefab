@@ -57,11 +57,11 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}
   - SoundType: 3
     Clip: {fileID: 8300000, guid: 5fe4bc0609c03e24097e0cb3666a4fb5, type: 3}
-  - SoundType: 10
+  - SoundType: 4
     Clip: {fileID: 8300000, guid: 41fe4d9ba3ef6724ca43b1fe9c39ddea, type: 3}
-  - SoundType: 11
+  - SoundType: 5
     Clip: {fileID: 8300000, guid: 6c60258c91fb7bf46926751225a4c3a2, type: 3}
-  - SoundType: 12
+  - SoundType: 6
     Clip: {fileID: 8300000, guid: 6df6bd99cac3fbb45b87971b1f8d910b, type: 3}
   _mainMusic: {fileID: 7320005697209274458}
 --- !u!82 &7320005697209274458
