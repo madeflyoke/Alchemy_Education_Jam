@@ -57,6 +57,7 @@ namespace Main.Scripts.Craft
             transform.DOKill(false);
             transform.rotation = Quaternion.Euler(0, 0, 0);
             IsEmpty = true;
+            Type = IngredientsType.DEFAULT;
             Count = 0;
         }
     }

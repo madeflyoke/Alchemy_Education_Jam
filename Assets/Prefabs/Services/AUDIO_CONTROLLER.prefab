@@ -47,16 +47,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSourcePrefab: {fileID: 5845863248618655925}
-  _soundsVolume: 0.407
+  _soundsVolume: 0.4
   _clips:
   - SoundType: 0
     Clip: {fileID: 8300000, guid: 2aa42b757137445eea181c743c2cc9e4, type: 3}
   - SoundType: 1
     Clip: {fileID: 8300000, guid: ea585a7758a3e48c89e2321f9564391f, type: 3}
   - SoundType: 2
-    Clip: {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}
+    Clip: {fileID: 8300000, guid: 0b98a06adaba7f6498b9779d736ce3d9, type: 3}
   - SoundType: 3
-    Clip: {fileID: 8300000, guid: 5fe4bc0609c03e24097e0cb3666a4fb5, type: 3}
+    Clip: {fileID: 8300000, guid: 51ce6330e920a0544a6b02cc97fcc73e, type: 3}
   - SoundType: 4
     Clip: {fileID: 8300000, guid: 41fe4d9ba3ef6724ca43b1fe9c39ddea, type: 3}
   - SoundType: 5

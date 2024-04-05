@@ -67,7 +67,6 @@ namespace Main.Scripts.Craft
             {
                 _failedParticles.Play();
             }
-            SoundController.Instance.PlayClip(SoundType.POOF);
 
             
             _plant.SetActive(true);

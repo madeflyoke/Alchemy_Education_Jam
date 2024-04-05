@@ -22,6 +22,7 @@ namespace Main.Scripts.Ingredients
                 Type = type;
             
             Color = relatedColor;
+            IsDropped = false;
         }
 
         public IMovable Peak()

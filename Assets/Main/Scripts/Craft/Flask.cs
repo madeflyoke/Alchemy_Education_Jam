@@ -48,12 +48,16 @@ namespace Main.Scripts.Craft
         private void FixedUpdate()
         {
             if (transform.position.y < _minHeight)
-                transform.position = _defaultPosition;
+                ResetFlask();
+        }
+
+        private void ResetFlask()
+        {
+            transform.position = _defaultPosition;
         }
 
         public void Release()
         {
-             IsDropped = true;
             _collider.enabled = true;
             _rigidbody.useGravity = true;
         }

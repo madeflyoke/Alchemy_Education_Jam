@@ -21,17 +21,15 @@ namespace Main.Scripts.Level
         [SerializeField] private TargetFlowerUILabel _targetLabel;
         private FlowersSetup _flowersSetup;
         private RecipeHelper _recipeHelper;
-        private SoundController _soundController;
         private InputHandler _inputHandler;
         private FlowerType _currentFlower;
 
         [Inject]
-        public void Initialize(InputHandler inputHandler, RecipeHelper recipeHelper, FlowersSetup flowersSetup, SoundController soundController)
+        public void Initialize(InputHandler inputHandler, RecipeHelper recipeHelper, FlowersSetup flowersSetup)
         {
             _flowersSetup = flowersSetup;
             _recipeHelper = recipeHelper;
             _inputHandler = inputHandler;
-            _soundController = soundController;
         }
 
         public void SetupLevel()
@@ -58,21 +56,21 @@ namespace Main.Scripts.Level
             if (type == _currentFlower)
             {
                 _boiler.Disable();
-                _witch.TryPlayResultAnimation(true);
                 await UniTask.Delay(3000);
                 PeakRandomFlower();
                 _boiler.Enable();
-                _soundController.PlayClip(SoundType.WIN);
                 _flowerPot.ResetPot(true);
+                SoundController.Instance.PlayClip(SoundType.WIN, SoundController.Instance.SoundsVolume *0.1f);
+                _witch.TryPlayResultAnimation(true);
             }
             else
             {
                 _boiler.Disable();
-                _witch.TryPlayResultAnimation(false);
                 await UniTask.Delay(3000);
                 _boiler.Enable();
-                _soundController.PlayClip(SoundType.LOSE);
                 _flowerPot.ResetPot(false);
+                SoundController.Instance.PlayClip(SoundType.LOSE,SoundController.Instance.SoundsVolume *0.1f);
+                _witch.TryPlayResultAnimation(false);
             }
         }
 
